@@ -1,0 +1,69 @@
+
+# ==============================
+# PYTHON
+# ==============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.pytype/
+.hypothesis/
+
+# ==============================
+# VIRTUAL ENVIRONMENTS
+# ==============================
+.venv/
+venv/
+env/
+ENV/
+
+# ==============================
+# ENVIRONMENT VARIABLES
+# ==============================
+.env
+.env.*
+!.env.example
+
+# ==============================
+# NODE / REACT / VITE
+# ==============================
+node_modules/
+dist/
+build/
+.vite/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ==============================
+# IDE
+# ==============================
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# ==============================
+# OPERATING SYSTEM
+# ==============================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==============================
+# LOGS AND TEMPORARY FILES
+# ==============================
+*.log
+*.tmp
+*.bak
+*.swp
