@@ -4,7 +4,7 @@
 
 ## Architecture
 
-- `ocr-service/` : API et services backend (KYC, KYB, biométrie, OCR).
+- `backend/` : API et services backend (KYC, KYB, biométrie, OCR).
 - `dashboard/` : application web React.
 - `docs/` : documentation technique et fonctionnelle.
 - `infrastructure/` : scripts et ressources de déploiement.
@@ -12,5 +12,5 @@
 
 ## Démarrage
 
-Voir `ocr-service/README.md` et `dashboard/README.md`.
+Voir `backend/README.md` et `dashboard/README.md`.
 

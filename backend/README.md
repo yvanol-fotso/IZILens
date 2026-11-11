@@ -5,7 +5,7 @@ Backend modulaire FastAPI. Les modules et routes présents sont des squelettes d
 ## Installation (Windows CMD)
 
 ```bat
-cd ocr-service
+cd backend
 py -m venv .venv
 .venv\Scripts\activate
 py -m pip install -r requirements.txt
