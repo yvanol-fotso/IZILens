@@ -1,7 +1,5 @@
 
-# ==============================
-# PYTHON
-# ==============================
+# Pr Python
 __pycache__/
 *.py[cod]
 *.pyo
@@ -18,24 +16,20 @@ htmlcov/
 .pytype/
 .hypothesis/
 
-# ==============================
-# VIRTUAL ENVIRONMENTS
-# ==============================
+
+# virtuals env
 .venv/
 venv/
 env/
 ENV/
 
-# ==============================
-# ENVIRONMENT VARIABLES
-# ==============================
+# variables environements
 .env
 .env.*
 !.env.example
 
-# ==============================
-# NODE / REACT / VITE
-# ==============================
+
+# node / react / vite
 node_modules/
 dist/
 build/
@@ -45,25 +39,22 @@ npm-debug.log*
 yarn-debug.log*
 pnpm-debug.log*
 
-# ==============================
 # IDE
-# ==============================
 .vscode/
 .idea/
 *.sublime-workspace
 *.sublime-project
 
-# ==============================
 # OPERATING SYSTEM
-# ==============================
 .DS_Store
 Thumbs.db
 Desktop.ini
 
-# ==============================
-# LOGS AND TEMPORARY FILES
-# ==============================
+# Llogs et file temporaires
 *.log
 *.tmp
 *.bak
 *.swp
+
+# Scripts local init
+initialize_izilens.py

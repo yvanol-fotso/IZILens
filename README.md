@@ -1,6 +1,6 @@
 # IZILens
 
-Plateforme modulaire de KYC/KYB assistée par l'IA, construite autour d'un backend Python/FastAPI et d'un frontend React.
+ construite autour d'un backend Python/FastAPI et d'un frontend React.
 
 ## Architecture
 
@@ -14,4 +14,3 @@ Plateforme modulaire de KYC/KYB assistée par l'IA, construite autour d'un backe
 
 Voir `ocr-service/README.md` et `dashboard/README.md`.
 
-Ne jamais versionner les fichiers `.env`, secrets, clés privées ou données personnelles réelles.
