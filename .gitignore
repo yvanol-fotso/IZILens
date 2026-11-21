@@ -74,3 +74,5 @@ Desktop.ini
 *.tmp
 *.bak
 *.swp
+
+backend/var/

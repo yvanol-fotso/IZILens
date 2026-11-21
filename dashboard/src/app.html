@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="%lang%" data-theme="%theme%">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.svg" />
+		<meta name="theme-color" content="#101E2D" />
+		<script>
+			(function () {
+				var el = document.documentElement;
+				if (el.getAttribute('data-theme') === 'system') {
+					el.setAttribute('data-theme', matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+				}
+			})();
+		</script>
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
