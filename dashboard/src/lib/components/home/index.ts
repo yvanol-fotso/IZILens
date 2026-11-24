@@ -1,5 +1,10 @@
-export { default as Coverage } from './Coverage.svelte';
+export { default as ApiSection } from './ApiSection.svelte';
 export { default as FinalCta } from './FinalCta.svelte';
 export { default as Hero } from './Hero.svelte';
-export { default as PlatformSteps } from './PlatformSteps.svelte';
+export { default as HowItWorks } from './HowItWorks.svelte';
+export { default as Presentation } from './Presentation.svelte';
+export { default as PricingSection } from './PricingSection.svelte';
+export { default as SectorsSection } from './SectorsSection.svelte';
+export { default as SecuritySection } from './SecuritySection.svelte';
+export { default as ServicesSection } from './ServicesSection.svelte';
 export { default as WhyUs } from './WhyUs.svelte';
