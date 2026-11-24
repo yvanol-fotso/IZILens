@@ -1,8 +1,7 @@
 import type { Component } from 'svelte';
 import {
 	LayoutDashboard, FileCheck2, FilePlus2, ScanFace, Fingerprint, ShieldAlert, ChartColumn,
-	KeyRound, Users, ScrollText, Settings, Code, Building2, Megaphone, Server, UserCog, Gauge,
-	User, FileText, Cpu, Lock, Globe, Layers, Activity
+	KeyRound, Users, ScrollText, Settings, Code, Building2, Megaphone, Server, UserCog, Gauge
 } from '@lucide/svelte';
 import type { ModuleId, Role } from '$lib/types';
 import type { Permission } from './permissions';
@@ -61,62 +60,14 @@ export const adminNav: NavItem[] = [
 	{ key: 'system', href: '/app/admin/system', icon: Server }
 ];
 
-/** Menu « Solutions » du site vitrine : clés sous solutions.items.* */
-export interface SolutionLink { key: string; icon: Component<any>; href: string }
-export const solutionGroups: { key: string; items: SolutionLink[] }[] = [
-	{
-		key: 'verification',
-		items: [
-			{ key: 'identity', icon: User, href: '/#platform' },
-			{ key: 'document', icon: FileText, href: '/#platform' },
-			{ key: 'biometric', icon: Fingerprint, href: '/#platform' },
-			{ key: 'liveness', icon: ScanFace, href: '/#platform' }
-		]
-	},
-	{
-		key: 'compliance',
-		items: [
-			{ key: 'aml', icon: ShieldAlert, href: '/#platform' },
-			{ key: 'sanctions', icon: Globe, href: '/#platform' },
-			{ key: 'pep', icon: Users, href: '/#platform' },
-			{ key: 'media', icon: FileText, href: '/#platform' }
-		]
-	},
-	{
-		key: 'platform',
-		items: [
-			{ key: 'api', icon: Cpu, href: '/#developers' },
-			{ key: 'analytics', icon: Activity, href: '/#platform' },
-			{ key: 'security', icon: Lock, href: '/privacy' },
-			{ key: 'coverage', icon: Layers, href: '/#coverage' }
-		]
-	}
-];
-
-/**
- * Navigation publique. `enabled: false` = destination pas encore publiée : l'entrée n'est PAS rendue
- * (la spec interdit les liens « # » ou vides). Passez à true dès que la page existe.
- */
-export interface MarketingLink { key: string; href: string; enabled: boolean; external?: boolean }
+/** Navigation publique (clés sous nav.*). */
+export interface MarketingLink { key: string; href: string; enabled: boolean }
 export const marketingNav: MarketingLink[] = [
-	{ key: 'platform', href: '/#platform', enabled: true },
-	{ key: 'industries', href: '/#industries', enabled: false },
-	{ key: 'coverage', href: '/#coverage', enabled: true },
-	{ key: 'why', href: '/#why', enabled: true },
-	{ key: 'resources', href: '/resources', enabled: false },
-	{ key: 'company', href: '/company', enabled: false }
+	{ key: 'solutions', href: '/solutions', enabled: true },
+	{ key: 'developers', href: '/developers', enabled: true },
+	{ key: 'resources', href: '/resources', enabled: true },
+	{ key: 'about', href: '/about', enabled: true },
+	{ key: 'contact', href: '/contact', enabled: true }
 ];
-
-/** Colonnes du pied de page. Sans `href` = simple texte (page non publiée). */
-export const footerSolutions = [
-	{ key: 'identity', href: '/#platform' },
-	{ key: 'biometric', href: '/#platform' },
-	{ key: 'kyb', href: '/#platform' },
-	{ key: 'aml', href: '/#platform' },
-	{ key: 'fraud', href: '/#why' },
-	{ key: 'coverage', href: '/#coverage' }
-] as { key: string; href?: string }[];
-
-export const footerIndustries = ['financial', 'fintech', 'ecommerce', 'crypto', 'mobility', 'platforms'].map((key) => ({ key })) as { key: string; href?: string }[];
 
 export type { Role };

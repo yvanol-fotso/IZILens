@@ -1,0 +1,11 @@
+[Unit]
+Description=IZILens - maintenance chaque minute
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1min
+AccuracySec=10s
+Unit=izilens-maintenance.service
+
+[Install]
+WantedBy=timers.target

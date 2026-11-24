@@ -10,13 +10,13 @@
 	--font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
 
 	/* Palette de marque (inspirée de la charte fournie, non copiée) */
-	--brand-cyan: #19d9e8;
-	--brand-cyan-600: #12b9c6;
-	--brand-blue: #087cf5;
-	--brand-blue-600: #0668d1;
-	--brand-navy: #101e2d;
-	--brand-navy-2: #16293e;
-	--brand-navy-3: #1f3a57;
+	--brand-cyan: #22c7f2;
+	--brand-cyan-600: #19aad3;
+	--brand-blue: #008fcb;
+	--brand-blue-600: #0077ac;
+	--brand-navy: #071b35;
+	--brand-navy-2: #0d2a4d;
+	--brand-navy-3: #16406b;
 	--accent-mint: #14c98d;
 	--accent-purple: #7b4dff;
 	--accent-orange: #ff9f1a;
@@ -55,7 +55,7 @@
 :root,
 [data-theme='light'] {
 	color-scheme: light;
-	--bg: #f6f9fd;
+	--bg: #f4f7fa;
 	--bg-soft: #eef3fa;
 	--surface: #ffffff;
 	--surface-2: #f2f6fb;
@@ -65,12 +65,12 @@
 	--fg-subtle: #7a8aa0;
 	--border: #e0e8f2;
 	--border-strong: #c9d5e5;
-	--primary: var(--brand-blue);
+	--primary: var(--brand-blue-600);
 	--primary-hover: var(--brand-blue-600);
 	--primary-fg: #ffffff;
 	--primary-soft: #e6f0ff;
 	--cta: var(--brand-cyan);
-	--cta-hover: #4de4ef;
+	--cta-hover: #5cd5f5;
 	--cta-fg: #03233b;
 	--success: #0a9f6e;
 	--success-bg: #def8ee;
@@ -78,34 +78,34 @@
 	--warning-bg: #fff2d9;
 	--danger: #d2304f;
 	--danger-bg: #ffe4ea;
-	--info: #087cf5;
+	--info: #0077ac;
 	--info-bg: #e6f0ff;
-	--ring: rgb(8 124 245 / 0.45);
+	--ring: rgb(0 143 203 / 0.45);
 	--shadow-sm: 0 1px 2px rgb(7 24 47 / 0.06);
 	--shadow-md: 0 8px 24px -8px rgb(7 24 47 / 0.14);
 	--shadow-lg: 0 30px 60px -24px rgb(7 24 47 / 0.28);
-	--scrim: rgb(16 30 45 / 0.55);
+	--scrim: rgb(7 27 53 / 0.55);
 }
 
 /* ── Thème sombre ─────────────────────────────────────────────────────────── */
 [data-theme='dark'] {
 	color-scheme: dark;
-	--bg: #0b1622;
-	--bg-soft: #0f1d2d;
-	--surface: #142437;
-	--surface-2: #1a2d44;
-	--surface-3: #233a56;
+	--bg: #050f1f;
+	--bg-soft: #081a33;
+	--surface: #0c2140;
+	--surface-2: #11294b;
+	--surface-3: #1a3a66;
 	--fg: #e8f0fb;
 	--fg-muted: #98abc4;
 	--fg-subtle: #6c819d;
-	--border: #243a54;
-	--border-strong: #345274;
+	--border: #17345c;
+	--border-strong: #25497d;
 	--primary: #4c8dff;
 	--primary-hover: #74a6ff;
 	--primary-fg: #04132a;
 	--primary-soft: #0f2b57;
 	--cta: var(--brand-cyan);
-	--cta-hover: #6fe9f2;
+	--cta-hover: #7fdcf8;
 	--cta-fg: #03233b;
 	--success: #36e0a8;
 	--success-bg: #0a3a2e;

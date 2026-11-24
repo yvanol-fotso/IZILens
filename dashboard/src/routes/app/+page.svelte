@@ -10,11 +10,12 @@
 	const user = $derived(data.user);
 	const s = $derived(data.stats);
 	const statusSegments = $derived([
-		{ label: t('status.approved'), value: s.byStatus.approved, color: 'var(--accent-mint)' },
-		{ label: t('status.pending_review'), value: s.byStatus.pending_review, color: 'var(--accent-orange)' },
-		{ label: t('status.rejected'), value: s.byStatus.rejected, color: 'var(--accent-rose)' },
-		{ label: t('status.processing'), value: s.byStatus.processing, color: 'var(--brand-blue)' },
-		{ label: t('status.failed'), value: s.byStatus.failed, color: 'var(--fg-subtle)' }
+		{ label: t('status.verified'), value: s.byStatus.verified, color: 'var(--accent-mint)' },
+		{ label: t('status.manual_review'), value: s.byStatus.manual_review, color: 'var(--accent-orange)' },
+		{ label: t('status.not_verified'), value: s.byStatus.not_verified, color: 'var(--accent-rose)' },
+		{ label: t('status.processing'), value: s.byStatus.processing + s.byStatus.in_progress, color: 'var(--brand-blue)' },
+		{ label: t('status.action_required'), value: s.byStatus.action_required, color: 'var(--accent-violet, var(--brand-blue))' },
+		{ label: t('status.failed'), value: s.byStatus.failed + s.byStatus.expired, color: 'var(--fg-subtle)' }
 	]);
 </script>
 

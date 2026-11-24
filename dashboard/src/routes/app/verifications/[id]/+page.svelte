@@ -22,7 +22,7 @@
 		<ExtractedData {kyc} />
 	</div>
 	<aside>
-		<DecisionPanel {form} canDecide={can(data.user.role, 'cases:decide')} pending={kyc.status === 'pending_review'} canLiveness={can(data.user.role, 'liveness:manage') && moduleEnabled(data.user, 'liveness')} />
+		<DecisionPanel {form} canDecide={can(data.user.role, 'cases:decide')} pending={kyc.allowed_actions?.includes('decide') ?? kyc.status === 'manual_review'} canLiveness={can(data.user.role, 'liveness:manage') && moduleEnabled(data.user, 'liveness')} />
 	</aside>
 </div>
 

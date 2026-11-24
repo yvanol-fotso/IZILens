@@ -24,6 +24,7 @@ Toutes les routes ci-dessous sont centralisées dans `src/lib/server/endpoints.t
 | | `POST /kyc/cases/{id}/decision` | `{decision:"approved"\|"rejected", reason}` ; `409` si déjà décidé |
 | Audit | `GET /audit-logs` | tableau ou `{items,total}` |
 | Santé | `GET /health` | 200 |
+| **Demandes publiques** (contact, devis, démo) | `POST /public/contact-requests` | `{kind:"contact"\|"demo", locale, fields:{full_name,company,email,country,role,type,subject,message,services[],sector,volume,consent_privacy,consent_marketing}}` → `{reference}` (+ e-mail de confirmation, routage Sales / Partnerships, statuts New → Closed) |
 | *(à venir)* Vivacité | `POST /liveness/sessions`, `GET/PATCH /liveness/settings` | si absent, l'UI passe en mode démonstration |
 
 ## Ajouter `POST /auth/oauth/google` côté FastAPI
@@ -52,3 +53,17 @@ Décision produit : refuser (403, comme ci-dessus) ou **créer** le compte à la
 
 ## Google Cloud Console
 Type *Application Web* ; URI de redirection : `https://<domaine>/api/auth/oauth` (et `http://localhost:5173/api/auth/oauth` en dev).
+
+## Hors périmètre de cette livraison (backend à construire)
+Facturation (forfaits, consommation, avoirs, multi-devises), Super Admin complet (rôles, MFA, centre de sécurité, rapports),
+CMS éditorial (blog, guides, FAQ administrable), portail développeur (comptes, demandes d'accès, Sandbox/Production, webhooks).
+Le dashboard actuel n'affiche aucune de ces fonctionnalités comme opérationnelle.
+
+
+---
+
+## État du backend (version finale)
+
+Le backend FastAPI du dépôt fournit désormais tout ce contrat : authentification (JWT, Google OIDC, MFA TOTP, inscription), organisations, utilisateurs, clés API, dossiers KYC (parcours API et hébergé), audit, `POST /public/contact-requests`, ainsi que les modules **facturation**, **Super Admin** (rôles, centre de sécurité, rapports), **contenus éditoriaux** et **portail développeur** (Sandbox/Production) dont les écrans restent à construire dans ce dashboard.
+Statuts d'un dossier : `created`, `in_progress`, `action_required`, `processing`, `manual_review`, `verified`, `not_verified`, `failed`, `expired`.
+Référence complète : `docs/api/frontend-integration.md` et `docs/specifications/platform-modules.md` (dépôt racine).

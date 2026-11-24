@@ -20,6 +20,7 @@ export const actions: Actions = {
 		const data = await request.formData();
 		const email = String(data.get('email') ?? '').trim().toLowerCase();
 		const password = String(data.get('password') ?? '');
+		const mfaCode = String(data.get('mfa_code') ?? '').trim();
 		const next = String(data.get('next') ?? '');
 
 		const errors: Record<string, string> = {};
@@ -29,8 +30,12 @@ export const actions: Actions = {
 		if (Object.keys(errors).length) return fail(400, { ok: false, errors, values: { email } });
 
 		try {
-			setSession(cookies, await loginWithPassword(email, password));
+			setSession(cookies, await loginWithPassword(email, password, mfaCode || undefined));
 		} catch (e) {
+			const backendCode = e instanceof BackendError ? ((e.data as { error?: { code?: string } } | undefined)?.error?.code ?? '') : '';
+			if (backendCode === 'MFA_REQUIRED' || backendCode === 'INVALID_MFA_CODE') {
+				return fail(401, { ok: false, mfaRequired: true, message: backendCode === 'MFA_REQUIRED' ? 'auth.errors.mfaRequired' : 'auth.errors.mfaInvalid', values: { email } });
+			}
 			const status = e instanceof BackendError ? e.status : 500;
 			const message = status === 423 || status === 429 ? 'auth.errors.locked' : status === 503 ? 'auth.errors.unreachable' : status === 401 || status === 400 || status === 422 ? 'auth.errors.invalid' : 'auth.errors.generic';
 			return fail(status === 503 ? 503 : 400, { ok: false, message, values: { email } });

@@ -2,7 +2,10 @@
  * Dictionnaire FR = source de vérité des clés.
  * `en.ts` doit avoir exactement la même forme (vérifié par TypeScript).
  */
+import pages from './pages.fr';
+
 const fr = {
+	...pages,
 	meta: {
 		siteTitle: 'IZI LENS — Vérifiez les identités, bâtissez la confiance numérique',
 		siteDescription:
@@ -10,6 +13,7 @@ const fr = {
 		app: 'Tableau de bord'
 	},
 	common: {
+		...pages.common,
 		save: 'Enregistrer',
 		cancel: 'Annuler',
 		delete: 'Supprimer',
@@ -49,153 +53,6 @@ const fr = {
 		role: 'Rôle',
 		organization: 'Organisation',
 		skipToContent: 'Aller au contenu'
-	},
-	nav: {
-		platform: 'Plateforme',
-		solutions: 'Solutions',
-		coverage: 'Couverture',
-		why: 'Pourquoi IZI LENS',
-		industries: 'Secteurs',
-		resources: 'Ressources',
-		company: 'Entreprise',
-		developers: 'Développeurs',
-		signIn: 'Se connecter',
-		getStarted: 'Commencer',
-		contactSales: 'Contacter les ventes',
-		openApp: 'Ouvrir le tableau de bord',
-		menu: 'Menu',
-		language: 'Langue',
-		theme: 'Thème',
-		themeLight: 'Clair',
-		themeDark: 'Sombre',
-		themeSystem: 'Système'
-	},
-	solutions: {
-		groups: {
-			verification: 'Vérification',
-			compliance: 'Conformité',
-			platform: 'Plateforme'
-		},
-		items: {
-			identity: "Vérification d'identité",
-			document: 'Vérification de documents',
-			biometric: 'Vérification biométrique',
-			liveness: 'Détection de vivacité',
-			aml: 'Filtrage AML',
-			sanctions: 'Filtrage des sanctions',
-			pep: 'Filtrage PEP',
-			media: 'Presse défavorable',
-			api: 'Intégration API',
-			analytics: 'Tableau de bord et analyses',
-			security: 'Sécurité et confidentialité',
-			coverage: 'Couverture mondiale'
-		}
-	},
-	home: {
-		hero: {
-			title: "Vérifiez qui se présente, avant qu'il n'entre.",
-			subtitle:
-				"Documents, biométrie, risque et conformité : une seule infrastructure pour savoir à qui vous avez affaire, en quelques secondes et sans friction pour vos clients.",
-			primary: 'Parler à notre équipe',
-			secondary: "Explorer l'API",
-			demoTitle: 'Dossier KYC-20418',
-			demoDocument: 'Document authentique',
-			demoFace: 'Visage concordant',
-			demoLiveness: 'Vivacité détectée',
-			demoRisk: 'Risque faible',
-			demoScan: 'Analyse en cours'
-		},
-		platform: {
-			title: 'Un parcours complet, du document à la décision',
-			subtitle:
-				"Chaque étape fonctionne seule ou en chaîne. Activez uniquement les modules dont votre organisation a besoin.",
-			steps: {
-				collect: { title: 'Collecter', desc: 'Capturez et validez documents et données.' },
-				verify: { title: 'Vérifier', desc: 'Authentifiez les identités avec des contrôles avancés.' },
-				assess: { title: 'Évaluer', desc: 'Détectez les risques et les comportements suspects.' },
-				act: { title: 'Décider', desc: 'Appliquez des règles et des flux configurables.' },
-				integrate: { title: 'Intégrer', desc: 'Branchez la vérification via nos API et SDK.' }
-			}
-		},
-		coverage: {
-			title: 'Vérifiez vos utilisateurs partout dans le monde',
-			subtitle:
-				"Intégrez particuliers et entreprises dans plusieurs pays, avec une large gamme de documents et le respect des réglementations locales.",
-			stats: {
-				countries: { value: '200+', label: 'Pays et territoires' },
-				docs: { value: '5 000+', label: "Types de documents d'identité" },
-				compliance: { value: 'Global', label: 'Conformité réglementaire' },
-				speed: { value: 'Rapide', label: 'Vérification en quelques secondes' }
-			},
-			docs: {
-				passports: { title: 'Passeports', desc: 'Passeports de tous les grands pays.' },
-				ids: { title: "Cartes d'identité", desc: "Cartes d'identité nationales officielles." },
-				licenses: { title: 'Permis de conduire', desc: 'Permis locaux et internationaux.' },
-				permits: { title: 'Titres de séjour', desc: 'Permis et cartes de résidence.' },
-				business: { title: "Documents d'entreprise", desc: 'Documents de société et bénéficiaires effectifs.' }
-			}
-		},
-		why: {
-			title: 'Plus sûr, plus intelligent, plus simple',
-			subtitle:
-				"Technologie avancée, couverture mondiale et parcours fluide pour vérifier vos utilisateurs, réduire la fraude et accélérer votre croissance.",
-			items: {
-				fraud: { title: 'Prévention avancée de la fraude', desc: 'Des contrôles pilotés par IA pour détecter et bloquer les activités frauduleuses.' },
-				coverage: { title: 'Couverture mondiale', desc: 'Vérifiez particuliers et entreprises dans de nombreux pays.' },
-				speed: { title: 'Parcours rapide et fluide', desc: "Vérifiez vos utilisateurs en quelques secondes, sans friction." },
-				flexible: { title: 'Flexible et évolutif', desc: "S'intègre facilement et s'adapte à votre métier." },
-				compliance: { title: 'Pensé pour la conformité', desc: 'Restez conforme aux réglementations locales et aux standards mondiaux.' }
-			}
-		},
-		cta: {
-			title: 'Prêt à vérifier en toute confiance ?',
-			subtitle:
-				'Rejoignez les organisations qui font confiance à IZI LENS pour vérifier leurs utilisateurs, prévenir la fraude et rester conformes.',
-			primary: 'Parler à notre équipe',
-			secondary: "Voir la documentation de l'API",
-			perks: {
-				onboarding: { title: 'Mise en route rapide', desc: "Démarrez vite avec l'appui de notre équipe." },
-				integration: { title: 'Intégration flexible', desc: 'Via notre API ou des outils simples.' },
-				support: { title: 'Support dédié', desc: 'Nos experts vous accompagnent à chaque étape.' },
-				partner: { title: 'Un partenaire durable', desc: 'Grandissez avec un partenaire fiable.' }
-			}
-		}
-	},
-	footer: {
-		tagline:
-			"IZI LENS aide les entreprises à vérifier les identités, à évaluer les risques et à créer des expériences numériques plus sûres grâce à des parcours de vérification configurables.",
-		columns: {
-			solutions: 'Solutions',
-			industries: 'Secteurs',
-			developers: 'Développeurs',
-			company: 'Entreprise',
-			legal: 'Légal et confidentialité',
-			contact: 'Contact',
-			social: 'Réseaux sociaux'
-		},
-		solutions: {
-			identity: "Vérification d'identité",
-			biometric: 'Vérification biométrique',
-			kyb: "Vérification d'entreprise (KYB)",
-			aml: 'AML et filtrage des risques',
-			fraud: 'Prévention de la fraude',
-			coverage: 'Couverture mondiale'
-		},
-		industries: {
-			financial: 'Services financiers',
-			fintech: 'Fintech',
-			ecommerce: 'E-commerce et places de marché',
-			crypto: 'Crypto et actifs numériques',
-			mobility: 'Mobilité',
-			platforms: 'Plateformes en ligne'
-		},
-		links: { docs: "Documentation de l'API", signIn: 'Connexion au tableau de bord', contact: 'Nous contacter' },
-		privacy: 'Politique de confidentialité',
-		terms: "Conditions d'utilisation",
-		cookies: 'Politique de cookies',
-		cookiePrefs: 'Préférences de cookies',
-		rights: 'Tous droits réservés.',
-		language: 'Langue'
 	},
 	cookieBanner: {
 		title: 'Cookies et technologies similaires',
@@ -242,7 +99,8 @@ const fr = {
 			google: 'Continuer avec Google',
 			registered: 'Compte créé. Vous pouvez maintenant vous connecter.',
 			loggedOut: 'Vous avez été déconnecté.',
-			sessionExpired: 'Votre session a expiré. Reconnectez-vous.'
+			sessionExpired: 'Votre session a expiré. Reconnectez-vous.',
+			mfaCode: 'Code de vérification (ou code de secours)'
 		},
 		register: {
 			title: 'Créer un compte',
@@ -259,6 +117,8 @@ const fr = {
 		},
 		errors: {
 			invalid: 'E-mail ou mot de passe incorrect.',
+			mfaRequired: 'Saisissez le code de votre application d\'authentification.',
+			mfaInvalid: 'Code de vérification invalide.',
 			generic: "Une erreur est survenue. Réessayez dans un instant.",
 			required: 'Ce champ est obligatoire.',
 			email: 'Saisissez une adresse e-mail valide.',
@@ -339,13 +199,20 @@ const fr = {
 			back: 'Verso du document',
 			backHint: 'Facultatif. Stocké pour la revue, non lu par l’OCR.',
 			dropHint: 'Glissez une image ici ou cliquez pour choisir',
-			sizeHint: 'JPEG, PNG ou WebP · 8 Mo maximum',
+			sizeHint: 'JPEG ou PNG · 8 Mo maximum',
+			declaredTitle: 'Identité déclarée',
+			declaredHint: 'Telle que renseignée par la personne : elle est comparée aux données lues sur le document.',
+			surname: 'Nom',
+			givenNames: 'Prénoms',
+			birthDate: 'Date de naissance',
+			nationality: 'Nationalité',
 			submit: 'Lancer la vérification',
 			success: 'Dossier créé. Analyse en cours.',
 			fileRequired: 'Le recto du document est obligatoire.'
 		},
 		detail: {
-			extracted: 'Données extraites',
+			extracted: 'Données lues sur le document',
+			declared: 'Identité déclarée',
 			noExtracted: "Aucune donnée n'a pu être extraite.",
 			flags: 'Signaux de risque',
 			noFlags: 'Aucun signal de risque détecté.',
@@ -590,11 +457,15 @@ const fr = {
 		}
 	},
 	status: {
-		processing: 'En cours',
-		pending_review: 'À réviser',
-		approved: 'Approuvé',
-		rejected: 'Rejeté',
-		failed: 'Échec'
+		created: 'Créée',
+		in_progress: 'En cours',
+		action_required: 'Action requise',
+		processing: 'Traitement',
+		manual_review: 'À examiner',
+		verified: 'Vérifiée',
+		not_verified: 'Non vérifiée',
+		failed: 'Incident technique',
+		expired: 'Expirée'
 	},
 	risk: { low: 'Faible', medium: 'Moyen', high: 'Élevé', none: 'Non évalué' },
 	roles: {

@@ -5,7 +5,7 @@ updated: 2026-11-17
 
 ## Qui sommes-nous
 
-IZI LENS est une solution de Kafintech Group, dont l'adresse est 305 - 14903 93 Ave NW, Edmonton (Alberta) T5R 5H1, Canada. Pour toute question relative à vos données personnelles, écrivez à **contact@izilens.com**.
+IZI LENS est une solution de Kafintech Group, dont le siège est en Alberta, Canada. Pour toute question relative à vos données personnelles, écrivez à **contact@izilens.com**.
 
 ## Données que nous traitons
 

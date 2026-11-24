@@ -17,6 +17,9 @@
 	<FormAlert {form} />
 	<Input label={t('auth.login.email')} name="email" type="email" autocomplete="email" icon={Mail} bind:value={emailValue} error={form?.errors?.email ? t(form.errors.email) : undefined} required />
 	<Input label={t('auth.login.password')} name="password" type="password" autocomplete="current-password" icon={Lock} error={form?.errors?.password ? t(form.errors.password) : undefined} required />
+	{#if (form as { mfaRequired?: boolean } | null | undefined)?.mfaRequired}
+		<Input label={t('auth.login.mfaCode')} name="mfa_code" type="text" inputmode="numeric" autocomplete="one-time-code" required />
+	{/if}
 	<Button type="submit" block size="lg" {loading}>{t('auth.login.submit')}</Button>
 </form>
 

@@ -1,0 +1,29 @@
+[Unit]
+Description=IZILens - API backend (FastAPI)
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=izilens
+Group=izilens
+WorkingDirectory=/opt/izilens/backend
+EnvironmentFile=/etc/izilens/backend.env
+# 2 workers : chaque worker charge ses propres modèles OCR (mémoire). Ajuster selon la RAM disponible.
+ExecStart=/opt/izilens/backend/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 2 --proxy-headers --forwarded-allow-ips 127.0.0.1 --no-server-header
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+# Durcissement
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/izilens /var/log/izilens
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+LockPersonality=true
+MemoryMax=6G
+
+[Install]
+WantedBy=multi-user.target
