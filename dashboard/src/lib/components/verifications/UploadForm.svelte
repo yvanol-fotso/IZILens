@@ -32,12 +32,25 @@
 			<Input label="{t('verifications.upload.reference')} ({t('common.optional')})" name="reference" bind:value={reference} hint={t('verifications.upload.referenceHint')} maxlength={64} />
 		</div>
 
+		<fieldset class="declared">
+			<legend>{t('verifications.upload.declaredTitle')}</legend>
+			<p class="hint">{t('verifications.upload.declaredHint')}</p>
+			<div class="two">
+				<Input label={t('verifications.upload.surname')} name="declared_surname" required maxlength={80} />
+				<Input label={t('verifications.upload.givenNames')} name="declared_given_names" required maxlength={80} />
+			</div>
+			<div class="two">
+				<Input label={t('verifications.upload.birthDate')} name="declared_date_of_birth" type="date" required />
+				<Input label="{t('verifications.upload.nationality')} ({t('common.optional')})" name="declared_nationality" maxlength={60} />
+			</div>
+		</fieldset>
+
 		<div class="two">
 			{#each ['front', 'back'] as const as side (side)}
 				<div class="drop-wrap">
 					<span class="lbl">{t(side === 'front' ? 'verifications.upload.front' : 'verifications.upload.back')}{side === 'back' ? ` (${t('common.optional')})` : ''}</span>
 					<label class="drop" class:over={over === side} class:filled={!!files[side]} ondragover={(e) => { e.preventDefault(); over = side; }} ondragleave={() => (over = null)} ondrop={(e) => { e.preventDefault(); over = null; const inp = e.currentTarget.querySelector('input')!; inp.files = e.dataTransfer!.files; pick(side, inp.files, inp); }}>
-						<input type="file" name={side} accept="image/jpeg,image/png,image/webp" required={side === 'front'} onchange={(e) => pick(side, e.currentTarget.files, e.currentTarget)} />
+						<input type="file" name={side} accept="image/jpeg,image/png" required={side === 'front'} onchange={(e) => pick(side, e.currentTarget.files, e.currentTarget)} />
 						{#if previews[side]}
 							<img src={previews[side]} alt="" />
 							<span class="meta">{files[side]?.name} · {formatBytes(files[side]?.size)}</span>
@@ -56,6 +69,7 @@
 </Card>
 
 <style lang="scss">
+	.declared { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1rem; display: grid; gap: 0.75rem; legend { font-weight: 700; font-size: var(--fs-sm); padding: 0 0.4rem; } .hint { margin: 0; font-size: var(--fs-xs); color: var(--fg-subtle); } }
 	.two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 	.lbl { font-size: var(--fs-sm); font-weight: 700; display: block; margin-bottom: 0.4rem; }
 	.drop { position: relative; display: grid; place-items: center; align-content: center; gap: 0.4rem; text-align: center; min-height: 220px; padding: 1rem; border: 2px dashed var(--border-strong); border-radius: var(--radius-lg); background: var(--surface-2); color: var(--fg-muted); cursor: pointer; overflow: hidden; transition: border-color 0.15s, background 0.15s; font-size: var(--fs-sm); small { font-size: var(--fs-xs); color: var(--fg-subtle); }
