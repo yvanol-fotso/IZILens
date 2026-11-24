@@ -1,0 +1,16 @@
+[Unit]
+Description=IZILens - maintenance (expiration des demandes, notifications en attente)
+After=postgresql.service
+
+[Service]
+Type=oneshot
+User=izilens
+Group=izilens
+WorkingDirectory=/opt/izilens/backend
+EnvironmentFile=/etc/izilens/backend.env
+ExecStart=/opt/izilens/backend/.venv/bin/python scripts/maintenance.py
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/izilens /var/log/izilens

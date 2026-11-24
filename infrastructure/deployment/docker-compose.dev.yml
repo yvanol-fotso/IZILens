@@ -1,0 +1,22 @@
+# Développement local uniquement : PostgreSQL dans Docker. La production n'utilise pas Docker.
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: izilens-postgres
+    environment:
+      POSTGRES_USER: izilens
+      POSTGRES_PASSWORD: izilens_dev
+      POSTGRES_DB: izilens
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - izilens_pgdata:/var/lib/postgresql/data
+      - ./postgres-init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U izilens -d izilens"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  izilens_pgdata:
