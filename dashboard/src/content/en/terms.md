@@ -29,7 +29,7 @@ IZI LENS, its logo and its software remain the property of Kafintech Group. Your
 
 ## Liability and governing law
 
-*[To be completed own legal counsel: limitation of liability, governing law and jurisdiction des pays.]*
+*[To be completed by your legal counsel: limitation of liability, governing law and jurisdiction.]*
 
 ## Contact
 

@@ -1,5 +1,5 @@
 import { getContext, setContext } from 'svelte';
-import { translate } from './translate';
+import { translate, translateList } from './translate';
 import type { Locale } from './locales';
 
 const KEY = Symbol('izi-i18n');
@@ -12,6 +12,7 @@ export class I18n {
 		this.locale = initial;
 	}
 
+	list = (key: string) => translateList(this.locale, key);
 	t = (key: string, params?: Record<string, string | number>) => translate(this.locale, key, params);
 }
 
