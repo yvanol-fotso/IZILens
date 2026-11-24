@@ -1,6 +1,15 @@
 export * from './auth';
 
-export type CaseStatus = 'processing' | 'pending_review' | 'approved' | 'rejected' | 'failed';
+export type CaseStatus =
+	| 'created'
+	| 'in_progress'
+	| 'action_required'
+	| 'processing'
+	| 'manual_review'
+	| 'verified'
+	| 'not_verified'
+	| 'failed'
+	| 'expired';
 export type RiskLevel = 'low' | 'medium' | 'high';
 export type ModuleId = 'kyc' | 'liveness' | 'biometrics' | 'aml' | 'api';
 
@@ -19,11 +28,35 @@ export interface KycDocument {
 	created_at?: string;
 }
 
+export interface CaseFlag {
+	code: string;
+	severity: 'low' | 'medium' | 'high';
+	message: string;
+	field?: string | null;
+}
+
+export interface ExtractedField {
+	value: string | null;
+	normalized: string | null;
+	score: number | null;
+	method: string | null;
+	valid: boolean;
+}
+
 export interface KycCase {
 	id: string;
 	reference: string;
 	document_type: string;
+	country_code?: string;
 	status: CaseStatus;
+	status_label?: string;
+	status_reason?: string | null;
+	status_message?: string | null;
+	allowed_actions?: string[];
+	declared_identity?: Record<string, unknown> | null;
+	extracted?: Record<string, ExtractedField> | null;
+	checks?: { check_type: string; status: string; is_required: boolean }[];
+	attempts_summary?: Record<string, { used: number; max: number }>;
 	risk_level: RiskLevel | null;
 	ocr_confidence: number | null;
 	extracted_data: string | Record<string, unknown> | null;
@@ -73,6 +106,7 @@ export interface Paged<T> {
 
 
 export interface FormState {
+	mfaRequired?: boolean;
 	ok?: boolean;
 	message?: string;
 	errors?: Record<string, string>;

@@ -12,9 +12,9 @@
 
 <div class="grid">
 	<StatCard label={t('dashboard.stats.total')} value={formatNumber(stats.total, i18n.locale)} icon={ClipboardList} />
-	<StatCard label={t('dashboard.stats.pending')} value={stats.byStatus.pending_review} icon={Clock3} tone="warning" />
-	<StatCard label={t('dashboard.stats.approved')} value={stats.byStatus.approved} icon={CheckCircle2} tone="success" hint="{t('dashboard.stats.approvalRate')} : {formatPercent(stats.approvalRate, i18n.locale)}" />
-	<StatCard label={t('dashboard.stats.rejected')} value={stats.byStatus.rejected} icon={XCircle} tone="danger" />
+	<StatCard label={t('dashboard.stats.pending')} value={stats.byStatus.manual_review} icon={Clock3} tone="warning" />
+	<StatCard label={t('dashboard.stats.approved')} value={stats.byStatus.verified} icon={CheckCircle2} tone="success" hint="{t('dashboard.stats.approvalRate')} : {formatPercent(stats.approvalRate, i18n.locale)}" />
+	<StatCard label={t('dashboard.stats.rejected')} value={stats.byStatus.not_verified} icon={XCircle} tone="danger" />
 	<StatCard label={t('dashboard.stats.highRisk')} value={stats.byRisk.high} icon={ShieldAlert} tone="danger" />
 	<StatCard label={t('dashboard.stats.confidence')} value={formatPercent(stats.avgConfidence, i18n.locale)} icon={Gauge} tone="info" />
 </div>
