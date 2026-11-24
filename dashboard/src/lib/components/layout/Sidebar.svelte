@@ -72,7 +72,7 @@
 	h3 { font-size: 0.72rem; font-weight: 700; color: #6f89ab; padding: 0 0.7rem; margin-bottom: 0.3rem; }
 	a { display: flex; align-items: center; gap: 0.7rem; padding: 0.62rem 0.75rem; border-radius: var(--radius-sm); font-size: var(--fs-sm); font-weight: 600; color: #c2d3ea; span { flex: 1; } :global(.badge) { background: rgb(255 255 255 / 0.1); color: #9db4d1; font-size: 0.66rem; padding: 0.1rem 0.45rem; }
 		&:hover { background: rgb(255 255 255 / 0.07); color: #fff; text-decoration: none; }
-		&.active { background: linear-gradient(90deg, rgb(25 217 232 / 0.2), rgb(25 217 232 / 0.04)); color: #fff; box-shadow: inset 3px 0 0 var(--brand-cyan); :global(svg) { color: var(--brand-cyan); } } }
+		&.active { background: linear-gradient(90deg, rgb(34 199 242 / 0.2), rgb(34 199 242 / 0.04)); color: #fff; box-shadow: inset 3px 0 0 var(--brand-cyan); :global(svg) { color: var(--brand-cyan); } } }
 	.admin { padding-top: 0.9rem; border-top: 1px dashed rgb(255 255 255 / 0.12); h3 { color: var(--accent-orange); } }
 	.org { padding: 0.9rem 1.3rem; border-top: 1px solid rgb(255 255 255 / 0.07); font-size: var(--fs-xs); font-weight: 700; color: #8aa4c4; }
 	.scrim { position: fixed; inset: 0; background: var(--scrim); z-index: var(--z-drawer); }

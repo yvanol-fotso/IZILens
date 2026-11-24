@@ -1,0 +1,9 @@
+[Unit]
+Description=IZILens - sauvegarde PostgreSQL et fichiers chiffrés
+
+[Service]
+Type=oneshot
+User=izilens
+Group=izilens
+EnvironmentFile=/etc/izilens/backend.env
+ExecStart=/opt/izilens/infrastructure/deployment/production/backup.sh

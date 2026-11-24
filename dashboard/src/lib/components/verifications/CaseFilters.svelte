@@ -8,7 +8,7 @@
 	let search = $state(filters.search);
 	let status = $state(filters.status);
 	let risk = $state(filters.risk_level);
-	const statuses = ['processing', 'pending_review', 'approved', 'rejected', 'failed'];
+	const statuses = ['created', 'in_progress', 'action_required', 'processing', 'manual_review', 'verified', 'not_verified', 'failed', 'expired'];
 	const risks = ['low', 'medium', 'high'];
 </script>
 

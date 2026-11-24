@@ -35,7 +35,7 @@
 </div>
 
 <style lang="scss">
-	.hero { background: var(--brand-navy); color: #fff; padding: calc(var(--header-h) + 3.5rem) 0 3.5rem; background-image: radial-gradient(60% 120% at 85% 0%, rgb(25 217 232 / 0.18), transparent 60%); }
+	.hero { background: var(--brand-navy); color: #fff; padding: calc(var(--header-h) + 3.5rem) 0 3.5rem; background-image: radial-gradient(60% 120% at 85% 0%, rgb(34 199 242 / 0.18), transparent 60%); }
 	h1 { font-size: var(--fs-3xl); max-width: 22ch; }
 	.hero p { margin-top: 0.8rem; color: #9db4d1; }
 	.layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 3.5rem; padding: 3rem 0 5rem; align-items: start; }

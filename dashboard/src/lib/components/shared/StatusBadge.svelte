@@ -4,7 +4,8 @@
 	let { status }: { status: string } = $props();
 	const { t } = getI18n();
 	const tones: Record<string, 'success' | 'warning' | 'danger' | 'info' | 'neutral'> = {
-		approved: 'success', pending_review: 'warning', rejected: 'danger', processing: 'info', failed: 'neutral'
+		verified: 'success', manual_review: 'warning', not_verified: 'danger', processing: 'info', in_progress: 'info',
+		action_required: 'warning', created: 'neutral', failed: 'danger', expired: 'neutral'
 	};
 </script>
 

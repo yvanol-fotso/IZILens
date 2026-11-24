@@ -10,7 +10,17 @@ export interface CaseStats {
 	confidenceBands: { low: number; mid: number; high: number };
 }
 
-const STATUSES: CaseStatus[] = ['processing', 'pending_review', 'approved', 'rejected', 'failed'];
+const STATUSES: CaseStatus[] = [
+	'created',
+	'in_progress',
+	'action_required',
+	'processing',
+	'manual_review',
+	'verified',
+	'not_verified',
+	'failed',
+	'expired'
+];
 
 export function buildStats(cases: KycCase[], days = 14): CaseStats {
 	const byStatus = Object.fromEntries(STATUSES.map((s) => [s, 0])) as Record<CaseStatus, number>;
@@ -42,13 +52,13 @@ export function buildStats(cases: KycCase[], days = 14): CaseStats {
 		if (key && perDay.has(key)) perDay.set(key, (perDay.get(key) ?? 0) + 1);
 	}
 
-	const decided = byStatus.approved + byStatus.rejected;
+	const decided = byStatus.verified + byStatus.not_verified;
 	return {
 		total: cases.length,
 		byStatus,
 		byRisk,
 		avgConfidence: confCount ? confSum / confCount : null,
-		approvalRate: decided ? byStatus.approved / decided : null,
+		approvalRate: decided ? byStatus.verified / decided : null,
 		daily: [...perDay.entries()].map(([date, value]) => ({ date, value })),
 		confidenceBands: bands
 	};

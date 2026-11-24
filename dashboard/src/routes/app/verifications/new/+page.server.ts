@@ -25,6 +25,10 @@ export const actions: Actions = {
 		const out = new FormData();
 		out.set('document_type', String(d.get('document_type') ?? 'cni_cm'));
 		if (reference) out.set('reference', reference);
+		for (const k of ['declared_surname', 'declared_given_names', 'declared_date_of_birth', 'declared_nationality']) {
+			const v = String(d.get(k) ?? '').trim();
+			if (v) out.set(k, v);
+		}
 		out.set('front', front, front.name);
 		if (back instanceof File && back.size > 0) out.set('back', back, back.name);
 

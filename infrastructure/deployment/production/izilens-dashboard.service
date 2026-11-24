@@ -1,0 +1,23 @@
+[Unit]
+Description=IZILens - dashboard et site public (SvelteKit, Node.js)
+After=network-online.target izilens-backend.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=izilens
+Group=izilens
+WorkingDirectory=/opt/izilens/dashboard
+EnvironmentFile=/etc/izilens/dashboard.env
+ExecStart=/usr/bin/node build
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+CapabilityBoundingSet=
+MemoryMax=1G
+
+[Install]
+WantedBy=multi-user.target

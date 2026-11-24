@@ -9,9 +9,10 @@
 	let { data, children }: { data: { locale: 'fr' | 'en' }; children: Snippet } = $props();
 
 	// Contexte i18n propre à la requête ; se resynchronise quand la langue change.
-	// svelte-ignore state_referenced_locally
 	const i18n = setI18n(data.locale);
-	$effect.pre(() => { i18n.locale = data.locale; });
+	$effect.pre(() => {
+		i18n.locale = data.locale;
+	});
 	$effect(() => {
 		document.documentElement.lang = data.locale;
 	});

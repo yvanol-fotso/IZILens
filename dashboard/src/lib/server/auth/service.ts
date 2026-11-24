@@ -5,11 +5,11 @@ import { authConfig } from './config';
 import { clearSession } from './session';
 import type { Organization, SessionUser, TokenPair } from '$lib/types/auth';
 
-export async function loginWithPassword(email: string, password: string): Promise<TokenPair> {
+export async function loginWithPassword(email: string, password: string, mfaCode?: string): Promise<TokenPair> {
 	if (authConfig.loginFormat === 'form') {
 		return backendJson<TokenPair>(EP.auth.login, { method: 'POST', form: new URLSearchParams({ username: email, password }) });
 	}
-	return backendJson<TokenPair>(EP.auth.login, { method: 'POST', json: { email, password } });
+	return backendJson<TokenPair>(EP.auth.login, { method: 'POST', json: { email, password, ...(mfaCode ? { mfa_code: mfaCode } : {}) } });
 }
 
 export async function refreshTokens(refresh_token: string): Promise<TokenPair | null> {

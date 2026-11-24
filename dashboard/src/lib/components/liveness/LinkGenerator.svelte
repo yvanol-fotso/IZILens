@@ -30,7 +30,7 @@
 				demo = true;
 			}
 			link = `${location.origin}/verify/liveness/${token}`;
-			qr = await QRCode.toDataURL(link, { margin: 1, width: 240, color: { dark: '#101e2d', light: '#ffffff' } });
+			qr = await QRCode.toDataURL(link, { margin: 1, width: 240, color: { dark: '#071b35', light: '#ffffff' } });
 		} catch {
 			error = t('liveness.generate.error');
 		} finally {

@@ -1,6 +1,8 @@
 import type { Dictionary } from './fr';
+import pages from './pages.en';
 
 const en: Dictionary = {
+	...pages,
 	meta: {
 		siteTitle: 'IZI LENS — Verify identities, build digital trust',
 		siteDescription:
@@ -8,6 +10,7 @@ const en: Dictionary = {
 		app: 'Dashboard'
 	},
 	common: {
+		...pages.common,
 		save: 'Save',
 		cancel: 'Cancel',
 		delete: 'Delete',
@@ -48,153 +51,6 @@ const en: Dictionary = {
 		organization: 'Organization',
 		skipToContent: 'Skip to content'
 	},
-	nav: {
-		platform: 'Platform',
-		solutions: 'Solutions',
-		coverage: 'Coverage',
-		why: 'Why IZI LENS',
-		industries: 'Industries',
-		resources: 'Resources',
-		company: 'Company',
-		developers: 'Developers',
-		signIn: 'Sign in',
-		getStarted: 'Get started',
-		contactSales: 'Contact sales',
-		openApp: 'Open dashboard',
-		menu: 'Menu',
-		language: 'Language',
-		theme: 'Theme',
-		themeLight: 'Light',
-		themeDark: 'Dark',
-		themeSystem: 'System'
-	},
-	solutions: {
-		groups: {
-			verification: 'Verification',
-			compliance: 'Compliance',
-			platform: 'Platform'
-		},
-		items: {
-			identity: 'Identity verification',
-			document: 'Document verification',
-			biometric: 'Biometric verification',
-			liveness: 'Liveness detection',
-			aml: 'AML screening',
-			sanctions: 'Sanctions screening',
-			pep: 'PEP screening',
-			media: 'Adverse media check',
-			api: 'API integration',
-			analytics: 'Dashboard & analytics',
-			security: 'Security & privacy',
-			coverage: 'Global coverage'
-		}
-	},
-	home: {
-		hero: {
-			title: 'Know who is at the door before they come in.',
-			subtitle:
-				'Documents, biometrics, risk and compliance: one infrastructure to know who you are dealing with, in seconds and without friction for your customers.',
-			primary: 'Talk to our team',
-			secondary: 'Explore the API',
-			demoTitle: 'Case KYC-20418',
-			demoDocument: 'Document authentic',
-			demoFace: 'Face match',
-			demoLiveness: 'Liveness detected',
-			demoRisk: 'Low risk',
-			demoScan: 'Analysis in progress'
-		},
-		platform: {
-			title: 'A complete journey, from document to decision',
-			subtitle:
-				'Each step works alone or as part of a chain. Turn on only the modules your organization needs.',
-			steps: {
-				collect: { title: 'Collect', desc: 'Capture and validate documents and data.' },
-				verify: { title: 'Verify', desc: 'Authenticate identities with advanced checks.' },
-				assess: { title: 'Assess', desc: 'Detect risks and suspicious activity.' },
-				act: { title: 'Decide', desc: 'Apply configurable rules and workflows.' },
-				integrate: { title: 'Integrate', desc: 'Embed verification with our APIs and SDKs.' }
-			}
-		},
-		coverage: {
-			title: 'Verify users across the globe',
-			subtitle:
-				'Onboard individuals and businesses in multiple countries, with a wide range of identity documents and respect for local regulations.',
-			stats: {
-				countries: { value: '200+', label: 'Countries & territories' },
-				docs: { value: '5,000+', label: 'Identity document types' },
-				compliance: { value: 'Global', label: 'Compliance support' },
-				speed: { value: 'Fast', label: 'Verification in seconds' }
-			},
-			docs: {
-				passports: { title: 'Passports', desc: 'Passports from all major countries.' },
-				ids: { title: 'National IDs', desc: 'Government-issued identity cards.' },
-				licenses: { title: "Driver's licenses", desc: 'Local and international licenses.' },
-				permits: { title: 'Residence permits', desc: 'Permits and residence cards.' },
-				business: { title: 'Business documents', desc: 'Company documents and beneficial owners.' }
-			}
-		},
-		why: {
-			title: 'Safer, smarter and simpler',
-			subtitle:
-				'Advanced technology, global coverage and a seamless experience to verify users, reduce fraud and accelerate your growth.',
-			items: {
-				fraud: { title: 'Advanced fraud prevention', desc: 'AI-powered checks to detect and stop fraudulent activity.' },
-				coverage: { title: 'Global coverage', desc: 'Verify users and businesses in multiple countries.' },
-				speed: { title: 'Fast, seamless experience', desc: 'Verify users in seconds with a smooth process.' },
-				flexible: { title: 'Flexible and scalable', desc: 'Easily integrate and adapt to your business needs.' },
-				compliance: { title: 'Built for compliance', desc: 'Stay compliant with local regulations and global standards.' }
-			}
-		},
-		cta: {
-			title: 'Ready to verify with confidence?',
-			subtitle:
-				'Join organizations that trust IZI LENS to verify users, prevent fraud and stay compliant.',
-			primary: 'Talk to our team',
-			secondary: 'View API documentation',
-			perks: {
-				onboarding: { title: 'Fast onboarding', desc: 'Get started quickly with our team’s support.' },
-				integration: { title: 'Flexible integration', desc: 'Via our API or simple tools.' },
-				support: { title: 'Dedicated support', desc: 'Our experts help you at every step.' },
-				partner: { title: 'A long-term partner', desc: 'Grow with a reliable partner.' }
-			}
-		}
-	},
-	footer: {
-		tagline:
-			'IZI LENS helps businesses verify identities, assess risk, and build safer digital experiences through configurable verification workflows.',
-		columns: {
-			solutions: 'Solutions',
-			industries: 'Industries',
-			developers: 'Developers',
-			company: 'Company',
-			legal: 'Legal & Privacy',
-			contact: 'Contact',
-			social: 'Social'
-		},
-		solutions: {
-			identity: 'Identity Verification',
-			biometric: 'Biometric Verification',
-			kyb: 'Business Verification (KYB)',
-			aml: 'AML & Risk Screening',
-			fraud: 'Fraud Prevention',
-			coverage: 'Global Coverage'
-		},
-		industries: {
-			financial: 'Financial Services',
-			fintech: 'Fintech',
-			ecommerce: 'E-commerce & Marketplaces',
-			crypto: 'Crypto & Digital Assets',
-			mobility: 'Mobility',
-			platforms: 'Online Platforms'
-		},
-		links: { docs: 'API Documentation', signIn: 'Dashboard sign-in', contact: 'Contact' },
-		privacy: 'Privacy Policy',
-		terms: 'Terms of Use',
-		cookies: 'Cookie Policy',
-		cookiePrefs: 'Cookie Preferences',
-		rights: 'All rights reserved.',
-		language: 'Language'
-	},
 	cookieBanner: {
 		title: 'Cookies and similar technologies',
 		text: 'We use cookies and similar technologies to keep this website working, remember your preferences, understand website usage, and support optional features. You can accept optional cookies, reject them, or customise your choices.',
@@ -217,7 +73,7 @@ const en: Dictionary = {
 		updated: 'Last updated: {date}',
 		toc: 'On this page',
 		manageCookies: 'Manage my cookie preferences',
-		draftNotice: 'This document is a draft to be reviewed by group and our jurist legal counsel before deployment.'
+		draftNotice: 'This document is a draft to be reviewed by your legal counsel before publication.'
 	},
 	auth: {
 		brand: {
@@ -240,7 +96,8 @@ const en: Dictionary = {
 			google: 'Continue with Google',
 			registered: 'Account created. You can now sign in.',
 			loggedOut: 'You have been signed out.',
-			sessionExpired: 'Your session has expired. Please sign in again.'
+			sessionExpired: 'Your session has expired. Please sign in again.',
+			mfaCode: 'Verification code (or recovery code)'
 		},
 		register: {
 			title: 'Create an account',
@@ -257,6 +114,8 @@ const en: Dictionary = {
 		},
 		errors: {
 			invalid: 'Incorrect email or password.',
+			mfaRequired: 'Enter the code from your authenticator app.',
+			mfaInvalid: 'Invalid verification code.',
 			generic: 'Something went wrong. Please try again in a moment.',
 			required: 'This field is required.',
 			email: 'Enter a valid email address.',
@@ -337,13 +196,20 @@ const en: Dictionary = {
 			back: 'Back of the document',
 			backHint: 'Optional. Stored for review, not read by OCR.',
 			dropHint: 'Drop an image here or click to choose',
-			sizeHint: 'JPEG, PNG or WebP · 8 MB maximum',
+			sizeHint: 'JPEG or PNG · 8 MB maximum',
+			declaredTitle: 'Declared identity',
+			declaredHint: 'As entered by the person: it is compared with the data read on the document.',
+			surname: 'Surname',
+			givenNames: 'Given names',
+			birthDate: 'Date of birth',
+			nationality: 'Nationality',
 			submit: 'Start verification',
 			success: 'Case created. Analysis in progress.',
 			fileRequired: 'The front of the document is required.'
 		},
 		detail: {
-			extracted: 'Extracted data',
+			extracted: 'Data read from the document',
+			declared: 'Declared identity',
 			noExtracted: 'No data could be extracted.',
 			flags: 'Risk signals',
 			noFlags: 'No risk signal detected.',
@@ -588,11 +454,15 @@ const en: Dictionary = {
 		}
 	},
 	status: {
+		created: 'Created',
+		in_progress: 'In progress',
+		action_required: 'Action required',
 		processing: 'Processing',
-		pending_review: 'Pending review',
-		approved: 'Approved',
-		rejected: 'Rejected',
-		failed: 'Failed'
+		manual_review: 'Manual review',
+		verified: 'Verified',
+		not_verified: 'Not verified',
+		failed: 'Technical incident',
+		expired: 'Expired'
 	},
 	risk: { low: 'Low', medium: 'Medium', high: 'High', none: 'Not assessed' },
 	roles: {

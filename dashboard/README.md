@@ -36,7 +36,8 @@ src/
     server/                 ← backend, endpoints, api, proxy, markdown, analytics
       auth/                 ← config · session · google · policy · service
   routes/
-    (marketing)/            ← accueil, /privacy, /terms, /cookies
+    (marketing)/            ← accueil, /services (+/services/[slug]), /solutions, /developers,
+                              /resources, /about, /contact, /privacy, /terms, /cookies
     login  register
     app/                    ← dashboard (verifications, liveness, biometrics, aml, analytics,
                               api-keys, team, audit, settings, developers)
@@ -57,6 +58,16 @@ Ajouter une langue : `i18n/locales.ts`, un fichier typé sur `fr.ts`, et `src/co
 
 ## Conformité à la spec « Global Website Elements »
 Pied de page à 6 zones, sélecteur de langue en en-tête **et** en pied de page, bannière cookies (Accepter/Refuser de même poids), centre de préférences à 6 catégories avec version + horodatage, aucun traceur chargé sans consentement (`utils/tracking.ts#onConsent`), lien « Préférences de cookies » permanent, liens non publiés non rendus (`config/navigation.ts`, `config/site.ts`).
+
+## Contenus du site public
+Tous les textes (FR/EN) viennent des documents de contenu validés et sont dans `src/lib/i18n/pages.fr.ts` / `pages.en.ts`.
+Palette officielle : #008FCB · #071B35 · #22C7F2 · #F4F7FA (`src/app.css`).
+Aucun prix, téléphone ni adresse détaillée n'est affiché publiquement (décisions actées).
+Les formulaires Contact / Devis / Démonstration envoient à `POST /public/contact-requests` (voir le contrat) ; en développement,
+si la route n'existe pas encore, la demande est simulée et journalisée.
+
+## Production : variables indispensables
+`ORIGIN` (URL publique exacte) et `BODY_SIZE_LIMIT=20M` (sinon les envois de photos > 512 Ko échouent en 413).
 
 ## À compléter avant la mise en production
 - Contenus de chaque page (dossier Drive « CONTENUS POUR CHAQUE PAGE ») → `src/lib/i18n/*.ts`.
