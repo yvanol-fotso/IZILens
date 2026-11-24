@@ -38,6 +38,8 @@ export const EP = {
 		sessions: '/liveness/sessions',
 		settings: '/liveness/settings'
 	},
+	/** Demandes publiques (contact, devis, démonstration) → back-office. */
+	public: { contact: '/public/contact-requests' },
 	audit: '/audit-logs',
 	health: '/health'
 } as const;
