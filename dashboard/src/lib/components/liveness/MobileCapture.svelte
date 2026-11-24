@@ -61,6 +61,6 @@
 <style lang="scss">
 	.m { min-height: 100dvh; max-width: 460px; margin: 0 auto; padding: 1.5rem; display: grid; align-content: center; justify-items: center; gap: 1.2rem; text-align: center; h1 { font-size: var(--fs-xl); } p { color: var(--fg-muted); } }
 	.cam { position: relative; width: 100%; aspect-ratio: 3/4; border-radius: var(--radius-lg); overflow: hidden; background: #000; video { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); } }
-	.oval { position: absolute; inset: 12% 18%; border: 3px solid var(--brand-cyan); border-radius: 50%; box-shadow: 0 0 0 999px rgb(16 30 45 / 0.5); }
+	.oval { position: absolute; inset: 12% 18%; border: 3px solid var(--brand-cyan); border-radius: 50%; box-shadow: 0 0 0 999px rgb(7 27 53 / 0.5); }
 	.prompt { font-weight: 800; font-size: var(--fs-lg); color: var(--fg) !important; }
 </style>
