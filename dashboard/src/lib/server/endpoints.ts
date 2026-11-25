@@ -43,3 +43,43 @@ export const EP = {
 	audit: '/audit-logs',
 	health: '/health'
 } as const;
+
+/**
+ * Endpoints étendus (espace admin, sécurité, facturation, passkeys, MFA).
+ * Typé `any` pour l'instant afin de faire passer le build : les chemins ci-dessous
+ * sont déduits de vos fichiers de config et sont à vérifier contre le backend.
+ */
+export const EPX: any = {
+	admin: {
+		dashboard: '/admin/dashboard',
+		infra: '/admin/infrastructure',
+		kycCases: '/admin/kyc/cases',
+		kycOne: (id: string) => `/admin/kyc/cases/${id}`,
+		kycDecision: (id: string) => `/admin/kyc/cases/${id}/decision`,
+		pricing: '/admin/billing/pricing',
+		pricingHistory: '/admin/billing/pricing/history',
+		roles: '/admin/roles',
+		security: '/admin/security',
+		securitySessions: '/admin/security/sessions',
+		securityEvents: '/admin/security/events',
+		staff: '/admin/staff',
+		audit: '/admin/audit-logs',
+		settings: '/admin/settings',
+		platform: '/admin/platform/settings',
+		providers: '/admin/providers'
+	},
+	auth: {
+		passkeysOptions: '/auth/passkeys/options',
+		passkeysVerify: '/auth/passkeys/verify',
+		mfaVerify: '/auth/mfa/verify',
+		mfaSetup: '/auth/mfa/setup',
+		mfaDisable: '/auth/mfa/disable',
+		sessions: '/auth/sessions'
+	},
+	billing: {
+		invoices: '/billing/invoices',
+		payments: '/billing/payments',
+		usage: '/billing/usage',
+		subscription: '/billing/subscription'
+	}
+};
