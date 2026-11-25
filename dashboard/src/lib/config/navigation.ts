@@ -4,7 +4,7 @@ import {
 	KeyRound, Users, ScrollText, Settings, Code, Building2, Megaphone, Server, UserCog, Gauge
 } from '@lucide/svelte';
 import type { ModuleId, Role } from '$lib/types';
-import type { Permission } from './permissions';
+import { can, type Permission } from './permissions';
 
 export interface NavItem {
 	key: string; // clé i18n sous app.nav.*
@@ -59,6 +59,27 @@ export const adminNav: NavItem[] = [
 	{ key: 'announcements', href: '/app/admin/announcements', icon: Megaphone, soon: true },
 	{ key: 'system', href: '/app/admin/system', icon: Server }
 ];
+
+/**
+ * Filtre un menu selon les permissions de l'utilisateur.
+ * Accepte une liste de groupes ou une liste plate d'éléments (alors regroupés dans un groupe « admin »).
+ */
+export function visibleGroups(
+	nav: NavGroup[] | NavItem[],
+	user?: { role?: Role | null } | null
+): NavGroup[] {
+	const groups: NavGroup[] =
+		nav.length > 0 && 'items' in nav[0]
+			? (nav as NavGroup[])
+			: [{ key: 'admin', items: nav as NavItem[] }];
+
+	return groups
+		.map((g) => ({
+			...g,
+			items: g.items.filter((i) => !i.permission || can(user?.role, i.permission))
+		}))
+		.filter((g) => g.items.length > 0);
+}
 
 /** Navigation publique (clés sous nav.*). */
 export interface MarketingLink { key: string; href: string; enabled: boolean }
