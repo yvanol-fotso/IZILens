@@ -1,7 +1,8 @@
 import type { Component } from 'svelte';
 import {
 	LayoutDashboard, FileCheck2, FilePlus2, ScanFace, Fingerprint, ShieldAlert, ChartColumn,
-	KeyRound, Users, ScrollText, Settings, Code, Building2, Megaphone, Server, UserCog, Gauge
+	KeyRound, Users, ScrollText, Settings, Code, Building2, Megaphone, Server, UserCog, Gauge,
+	CreditCard
 } from '@lucide/svelte';
 import type { ModuleId, Role } from '$lib/types';
 import { can, type Permission } from './permissions';
@@ -48,6 +49,12 @@ export const appNav: NavGroup[] = [
 			{ key: 'audit', href: '/app/audit', icon: ScrollText, permission: 'audit:read' },
 			{ key: 'settings', href: '/app/settings', icon: Settings }
 		]
+	},
+	{
+		key: 'billing_group', // Clé du groupe
+		items: [
+			{ key: 'billing', href: '/app/billing', icon: CreditCard, permission: 'billing:read' }
+		]
 	}
 ];
 
@@ -56,14 +63,11 @@ export const adminNav: NavItem[] = [
 	{ key: 'adminOverview', href: '/app/admin', icon: Gauge, exact: true },
 	{ key: 'tenants', href: '/app/admin/tenants', icon: Building2 },
 	{ key: 'members', href: '/app/admin/members', icon: UserCog },
+	{ key: 'pricing', href: '/app/admin/pricing', icon: CreditCard },
 	{ key: 'announcements', href: '/app/admin/announcements', icon: Megaphone, soon: true },
 	{ key: 'system', href: '/app/admin/system', icon: Server }
 ];
 
-/**
- * Filtre un menu selon les permissions de l'utilisateur.
- * Accepte une liste de groupes ou une liste plate d'éléments (alors regroupés dans un groupe « admin »).
- */
 export function visibleGroups(
 	nav: NavGroup[] | NavItem[],
 	user?: { role?: Role | null } | null
@@ -81,12 +85,12 @@ export function visibleGroups(
 		.filter((g) => g.items.length > 0);
 }
 
-/** Navigation publique (clés sous nav.*). */
 export interface MarketingLink { key: string; href: string; enabled: boolean }
 export const marketingNav: MarketingLink[] = [
 	{ key: 'solutions', href: '/solutions', enabled: true },
 	{ key: 'developers', href: '/developers', enabled: true },
 	{ key: 'resources', href: '/resources', enabled: true },
+	{ key: 'pricing', href: '/pricing', enabled: true },
 	{ key: 'about', href: '/about', enabled: true },
 	{ key: 'contact', href: '/contact', enabled: true }
 ];

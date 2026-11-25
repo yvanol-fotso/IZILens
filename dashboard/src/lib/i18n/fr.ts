@@ -3,9 +3,11 @@
  * `en.ts` doit avoir exactement la même forme (vérifié par TypeScript).
  */
 import pages from './pages.fr';
+import admin from './admin.fr';
 
 const fr = {
 	...pages,
+	...admin, // <--- IMPORTANT : ajoute les clés rx.*, adm.*, etc.
 	meta: {
 		siteTitle: 'IZI LENS — Vérifiez les identités, bâtissez la confiance numérique',
 		siteDescription:
@@ -132,9 +134,10 @@ const fr = {
 		}
 	},
 	app: {
-		groups: { main: 'Principal', modules: 'Modules', workspace: 'Espace de travail', admin: 'Administration Kafintech' },
+		groups: { main: 'Principal', modules: 'Modules', workspace: 'Espace de travail', billing_group: 'Espace client', admin: 'Administration Kafintech' },
 		nav: {
 			overview: "Vue d'ensemble",
+			billing: 'Facturation',
 			verifications: 'Vérifications',
 			newVerification: 'Nouvelle vérification',
 			liveness: 'Vivacité',

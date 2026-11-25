@@ -6,6 +6,7 @@ const pages = {
 		solutions: 'Solutions',
 		developers: 'Développeurs',
 		resources: 'Ressources',
+		pricing: 'Tarifs',
 		about: 'À propos',
 		contact: 'Contact',
 		signIn: 'Se connecter',
@@ -388,8 +389,26 @@ const pages = {
 		confirm: { title: 'Merci de nous avoir contactés !', text: "Votre demande a bien été reçue par IZI LENS. Notre équipe va l'examiner et la transmettre au département concerné. Nous vous contacterons à l'adresse email indiquée si des informations complémentaires sont nécessaires.", ref: 'Numéro de référence', another: 'Envoyer une autre demande' },
 		errors: { required: 'Ce champ est obligatoire.', email: 'Saisissez une adresse e-mail valide.', consent: 'Votre consentement est nécessaire pour envoyer la demande.', server: "Votre demande n'a pas pu être transmise. Veuillez réessayer dans un instant.", spam: 'Soumission refusée.' },
 		portal: { title: 'Portail client', text: "Le support technique est accessible aux clients depuis le portail sécurisé." }
+	},
+	marketing: {
+		pricing: {
+			title: 'Des tarifs simples et transparents',
+			subtitle: 'Choisissez le plan adapté à vos besoins en vérification d\'identité.',
+			faq: 'Questions fréquentes',
+			faqBilling: 'La facturation est calculée à la fin du mois en fonction de votre consommation réelle (KYC, KYB, Biométrie).',
+			faqTaxes: 'Les prix affichés sont hors taxes. La conversion de devise est indicative.',
+			popular: 'Populaire',
+			start: 'Commencer',
+			contact: 'Contacter',
+			perMonth: 'mois',
+			perYear: 'an',
+			included: 'inclus',
+			ctaTitle: 'Prêt à sécuriser vos vérifications ?',
+			ctaText: 'Créez votre compte en 2 minutes et testez la plateforme dès aujourd\'hui.'
+		}
 	}
 };
+
 
 export default pages;
 export type PagesDict = typeof pages;

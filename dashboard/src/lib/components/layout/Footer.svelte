@@ -7,8 +7,7 @@
 	import SocialIcon from './SocialIcon.svelte';
 
 	const { t } = getI18n();
-	const year = new Date().getFullYear(); // généré dynamiquement
-	/** Seuls les profils dont l'URL officielle est confirmée sont rendus. */
+	const year = new Date().getFullYear();
 	const socials = SITE.social.filter((s) => !!s.url);
 </script>
 
@@ -31,7 +30,8 @@
 				<a href="/">{t('footer.links.home')}</a>
 				<a href="/services">{t('footer.links.services')}</a>
 				<a href="/solutions">{t('footer.links.solutions')}</a>
-				<a href="/#pricing">{t('footer.links.pricing')}</a>
+				<!-- Lien corrigé vers la nouvelle page de tarifs -->
+				<a href="/pricing">{t('footer.links.pricing')}</a>
 			</div>
 			<div>
 				<h3>{t('footer.columns.developers')}</h3>

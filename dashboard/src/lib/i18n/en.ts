@@ -1,8 +1,10 @@
 import type { Dictionary } from './fr';
 import pages from './pages.en';
+import admin from './admin.en';
 
 const en: Dictionary = {
 	...pages,
+	...admin, // <--- IMPORTANT : same as fr.ts (rx.*, adm.*, etc.)
 	meta: {
 		siteTitle: 'IZI LENS — Verify identities, build digital trust',
 		siteDescription:
@@ -129,9 +131,16 @@ const en: Dictionary = {
 		}
 	},
 	app: {
-		groups: { main: 'Main', modules: 'Modules', workspace: 'Workspace', admin: 'Kafintech administration' },
+		groups: {
+			main: 'Main',
+			modules: 'Modules',
+			workspace: 'Workspace',
+			billing_group: 'Customer Area',
+			admin: 'Kafintech administration'
+		},
 		nav: {
 			overview: 'Overview',
+			billing: 'Billing',
 			verifications: 'Verifications',
 			newVerification: 'New verification',
 			liveness: 'Liveness',
