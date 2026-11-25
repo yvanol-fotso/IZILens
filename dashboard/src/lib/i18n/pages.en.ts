@@ -1,32 +1,72 @@
 import type { PagesDict } from './pages.fr';
 
+/** English editorial content of the public site. Must mirror pages.fr.ts exactly (same keys, same shape). */
 const pages: PagesDict = {
 	nav: {
-		home: 'Home', services: 'Services', solutions: 'Solutions', developers: 'Developers', resources: 'Resources', about: 'About', contact: 'Contact',
-		signIn: 'Sign in', demo: 'Request a demo', menu: 'Menu', language: 'Language', theme: 'Theme', themeLight: 'Light', themeDark: 'Dark', themeSystem: 'System', openApp: 'Open dashboard'
+		home: 'Home',
+		services: 'Services',
+		solutions: 'Solutions',
+		developers: 'Developers',
+		resources: 'Resources',
+		pricing: 'Pricing',
+		about: 'About',
+		contact: 'Contact',
+		signIn: 'Sign in',
+		demo: 'Request a demo',
+		menu: 'Menu',
+		language: 'Language',
+		theme: 'Theme',
+		themeLight: 'Light',
+		themeDark: 'Dark',
+		themeSystem: 'System',
+		openApp: 'Open dashboard'
 	},
-	site: { slogan: 'Building trust in every digital interaction.', byline: 'by Kafintech Group' },
+	site: {
+		slogan: 'Building trust in every digital interaction.',
+		byline: 'by Kafintech Group'
+	},
 	footer: {
 		about: 'IZI LENS is an identity and business verification technology platform developed by Kafintech Group.',
 		columns: { platform: 'Platform', developers: 'Developers', company: 'Company', legal: 'Legal information' },
 		links: { home: 'Home', services: 'Our services', solutions: 'Solutions', pricing: 'Pricing', developers: 'Developer area', resources: 'Resources', about: 'About', contact: 'Contact', demo: 'Request a demo', signIn: 'Customer sign-in' },
-		privacy: 'Privacy Policy', terms: 'Terms of Use', cookies: 'Cookie Policy', cookiePrefs: 'Cookie Preferences',
+		privacy: 'Privacy Policy',
+		terms: 'Terms of Use',
+		cookies: 'Cookie Policy',
+		cookiePrefs: 'Cookie Preferences',
 		copyright: '© {year} IZI LENS – A Kafintech Group Company. All rights reserved.'
 	},
 	common: {
-		quote: 'Request a quote', customQuote: 'Get a custom quote', demo: 'Request a demo', learnMore: 'Learn more', discover: 'Discover', features: 'Key features', useCases: 'Use cases',
-		servicesFor: 'Suitable services', selected: '{count} service(s) selected', planned: 'Planned features', comingSoon: 'Coming soon'
+		quote: 'Request a quote',
+		customQuote: 'Get a custom quote',
+		demo: 'Request a demo',
+		learnMore: 'Learn more',
+		discover: 'Discover',
+		features: 'Key features',
+		useCases: 'Use cases',
+		servicesFor: 'Suitable services',
+		selected: '{count} service(s) selected',
+		planned: 'Planned features',
+		comingSoon: 'Coming soon'
 	},
 	svcNames: {
-		kyc: 'KYC — Identity verification', kyb: 'KYB — Business verification', liveness: 'Liveness & Biometrics — Biometric verification', monitoring: 'Monitoring — Verification oversight'
+		kyc: 'KYC — Identity verification',
+		kyb: 'KYB — Business verification',
+		liveness: 'Liveness & Biometrics — Biometric verification',
+		monitoring: 'Monitoring & Tracking — Verification oversight'
 	},
 	home: {
 		hero: {
 			title: 'Verify identities. Strengthen digital trust.',
 			text1: 'IZI LENS is an international identity and business verification platform designed to help organizations secure their digital interactions.',
 			text2: 'With a modular approach combining KYC, KYB, biometrics and monitoring, IZI LENS helps you know your users better, verify your business partners and strengthen your digital trust processes.',
-			primary: 'Request a demo', secondary: 'Discover our services',
-			demoTitle: 'Case KYC-20418', demoScan: 'Analysis in progress', demoDocument: 'Document authentic', demoFace: 'Face match', demoLiveness: 'Liveness detected', demoRisk: 'Low risk'
+			primary: 'Request a demo',
+			secondary: 'Discover our services',
+			demoTitle: 'Case KYC-20418',
+			demoScan: 'Analysis in progress',
+			demoDocument: 'Document authentic',
+			demoFace: 'Face match',
+			demoLiveness: 'Liveness detected',
+			demoRisk: 'Low risk'
 		},
 		intro: {
 			title: 'Digital trust starts with a verified identity.',
@@ -79,14 +119,21 @@ const pages: PagesDict = {
 			p1: 'With IZI LENS, businesses and technical teams can integrate verification features into their own applications and digital journeys.',
 			p2: 'Our API-oriented approach aims to make it easier to connect your IT environment with IZI LENS verification services.',
 			p3: 'Whether you are building a fintech app, a payment platform or a customer management system, you can design an integration that fits your architecture.',
-			primary: 'Explore our API', secondary: 'Access developer documentation'
+			primary: 'Explore our API',
+			secondary: 'Access developer documentation'
 		},
 		security: {
 			title: 'Security at the heart of our approach.',
 			lead: 'Identity data and business information require particular care.',
 			text: 'IZI LENS places great importance on processing security, access management, traceability of operations and protection of the information handled by the platform.',
 			intro: 'Our approach is notably based on:',
-			points: ['Controlled management of access and permissions.', 'Protection of information and documents.', 'Traceability of sensitive operations.', 'Separation of technical environments.', 'Consideration of applicable data protection requirements.'],
+			points: [
+				'Controlled management of access and permissions.',
+				'Protection of information and documents.',
+				'Traceability of sensitive operations.',
+				'Separation of technical environments.',
+				'Consideration of applicable data protection requirements.'
+			],
 			closing: 'Digital trust starts with responsible data management.'
 		},
 		pricing: {
@@ -95,14 +142,22 @@ const pages: PagesDict = {
 			p2: 'IZI LENS offers a flexible pricing approach that lets you select the services you need and choose a plan suited to your activity.',
 			p3: 'Depending on your needs, you will be able to access structured offers or request a custom commercial proposal.',
 			intro: 'Our pricing approach:',
-			points: ['Services available individually.', 'Plans combining several services.', 'Pricing adapted to verification volumes.', 'Custom commercial proposals.', 'Ability to study specific integration needs.'],
-			primary: 'View our pricing', secondary: 'Get a custom offer'
+			points: [
+				'Services available individually.',
+				'Plans combining several services.',
+				'Pricing adapted to verification volumes.',
+				'Custom commercial proposals.',
+				'Ability to study specific integration needs.'
+			],
+			primary: 'View our pricing',
+			secondary: 'Get a custom offer'
 		},
 		cta: {
 			title: 'Ready to strengthen trust in your digital operations?',
 			p1: 'Find out how IZI LENS can support your organization in its identity and business verification processes.',
 			p2: 'Tell us about your activity, your needs and the services you are interested in. Our team can offer a demo tailored to your organization.',
-			primary: 'Request a demo', secondary: 'Configure my offer'
+			primary: 'Request a demo',
+			secondary: 'Configure my offer'
 		}
 	},
 	svc: {
@@ -111,7 +166,8 @@ const pages: PagesDict = {
 			title: 'Our services',
 			text1: 'IZI LENS offers a suite of identity and business verification solutions designed to help organizations build trust in their digital interactions.',
 			text2: 'From verifying individuals to identifying companies, including biometrics and verification tracking, our services adapt to your business needs.',
-			primary: 'Discover our solutions', secondary: 'Request a quote'
+			primary: 'Discover our solutions',
+			secondary: 'Request a quote'
 		},
 		overview: {
 			title: 'Solutions adapted to your verification requirements',
@@ -127,7 +183,11 @@ const pages: PagesDict = {
 				tagline: 'Verify your users’ identity and simplify your digital onboarding.',
 				intro: 'IZI LENS KYC lets businesses collect and review their customers’ identity information through a structured process.',
 				problem: 'Onboarding users quickly without multiplying steps, while keeping control over the information and documents collected.',
-				features: ['Collection of personal information.', 'Upload or capture of identity documents.', 'Document quality and legibility checks.', 'Information extraction through optical character recognition (OCR), where available.', 'Consistency checks on collected data.', 'Verification status management.', 'Requests for corrections or additional information.', 'Option of manual case review.'],
+				features: [
+					'Collection of personal information.', 'Upload or capture of identity documents.', 'Document quality and legibility checks.',
+					'Information extraction through optical character recognition (OCR), where available.', 'Consistency checks on collected data.', 'Verification status management.',
+					'Requests for corrections or additional information.', 'Option of manual case review.'
+				],
 				useCases: ['Opening digital accounts.', 'Registration on financial platforms.', 'Fintech user onboarding.', 'Customer identification for microfinance institutions.', 'Verification of digital platform users.'],
 				benefits: ['A smoother onboarding journey.', 'Structured cases with viewable statuses and history.', 'Manual review for uncertain cases.'],
 				faq: [
@@ -143,7 +203,10 @@ const pages: PagesDict = {
 				tagline: 'Know the companies you enter business or financial relationships with.',
 				intro: 'IZI LENS KYB helps structure the verification of companies, their legal documents and the people who represent them.',
 				problem: 'Knowing precisely who is behind a company: legal documents, directors and beneficial owners.',
-				features: ['Collection of company information.', 'Collection and review of legal documents.', 'Identification of directors and legal representatives.', 'Identification of beneficial owners (UBO).', 'Viewing of the declared ownership structure.', 'Identification of missing information.', 'Management of requests for additional items.', 'Verification history and tracking.'],
+				features: [
+					'Collection of company information.', 'Collection and review of legal documents.', 'Identification of directors and legal representatives.', 'Identification of beneficial owners (UBO).',
+					'Viewing of the declared ownership structure.', 'Identification of missing information.', 'Management of requests for additional items.', 'Verification history and tracking.'
+				],
 				useCases: ['Onboarding business customers.', 'Opening business accounts.', 'Verification of merchants and sellers.', 'Onboarding suppliers and partners.', 'Verification of business customers of financial platforms.'],
 				benefits: ['A clear view of the people linked to the company.', 'Missing information identified from the start.', 'Complete verification history.'],
 				faq: [
@@ -159,7 +222,10 @@ const pages: PagesDict = {
 				tagline: 'Strengthen the reliability of your identity verifications.',
 				intro: 'This service adds a biometric step to the verification process, helping confirm that the person presented matches the submitted identity and is really present during the check, depending on the features enabled.',
 				problem: 'Making sure the person behind the screen is the one on the document, and that they are present live.',
-				features: ['Face image capture.', 'Image quality control.', 'Liveness verification.', 'Face comparison where this feature is available and enabled.', 'Checks against certain presentation attacks.', 'Delivery of available results or scores.', 'Option of additional review when a result is uncertain.'],
+				features: [
+					'Face image capture.', 'Image quality control.', 'Liveness verification.', 'Face comparison where this feature is available and enabled.',
+					'Checks against certain presentation attacks.', 'Delivery of available results or scores.', 'Option of additional review when a result is uncertain.'
+				],
 				useCases: ['Remote user verification.', 'Opening financial accounts.', 'Strong authentication.', 'Validation of sensitive operations.', 'Identification journeys requiring a biometric check.'],
 				benefits: ['Greater reliability of remote verifications.', 'Results and scores available in the case.', 'Additional review when in doubt.'],
 				faq: [
@@ -169,13 +235,16 @@ const pages: PagesDict = {
 				cta: 'Discover Liveness & Biometrics'
 			},
 			monitoring: {
-				code: 'Monitoring', name: 'Verification oversight',
+				code: 'Monitoring & Tracking', name: 'Verification oversight',
 				short: 'Tracking of verification requests, status checks, event history and operational alert management.',
 				title: 'Verification oversight',
 				tagline: 'Keep visibility over your verification processes.',
 				intro: 'IZI LENS Monitoring lets organizations track their verification requests and view their progress through an oversight interface.',
 				problem: 'Knowing where each case stands, spotting blocked ones and keeping a trace of the actions taken.',
-				features: ['Tracking of verification requests.', 'Status viewing: pending, in progress, approved, rejected or requiring intervention.', 'Event history.', 'Traceability of actions performed.', 'Operational alerts.', 'Identification of pending cases.', 'Search and filtering of requests.', 'Viewing of results and how they evolve.'],
+				features: [
+					'Tracking of verification requests.', 'Status viewing: pending, in progress, approved, rejected or requiring intervention.', 'Event history.', 'Traceability of actions performed.',
+					'Operational alerts.', 'Identification of pending cases.', 'Search and filtering of requests.', 'Viewing of results and how they evolve.'
+				],
 				useCases: ['Oversight of KYC and KYB operations.', 'Tracking customer cases.', 'Managing pending verifications.', 'Operational control of identification processes.', 'Viewing verification history.'],
 				benefits: ['End-to-end operational visibility.', 'Pending cases identified quickly.', 'Viewable history and traceability.'],
 				faq: [
@@ -183,7 +252,7 @@ const pages: PagesDict = {
 					{ q: 'Can requests be filtered?', a: 'Yes, search and filtering of requests are planned.' }
 				],
 				note: 'Important: the Monitoring service described here covers functional tracking of verification requests. On its own, it is not a complete engine for monitoring financial transactions or detecting money-laundering operations.',
-				cta: 'Discover Monitoring'
+				cta: 'Discover Monitoring & Tracking'
 			}
 		},
 		detail: { problem: 'The challenge', benefits: 'Benefits for businesses', integration: 'Integration options', faq: 'Frequently asked questions', back: 'All services', integrationText: 'Depending on available features and the agreed scope: APIs, SDKs where available, Webhooks for events and configurable verification workflows.' },
@@ -284,7 +353,14 @@ const pages: PagesDict = {
 	},
 	about: {
 		hero: { kicker: 'Our Story', title: 'From a Canadian vision to an international technology ecosystem' },
-		story: ['Founded in Canada, Kafintech Group Inc. is a diversified group developing initiatives in technology, financial services, digital payments and media.', 'Since its creation, the group has pursued one ambition: to design and develop innovative solutions able to meet the new needs of businesses, individuals and markets undergoing digital transformation.', 'As it grew, Kafintech Group gradually extended its activities beyond the Canadian market, notably to several African markets, through different brands, companies and specialized initiatives.', 'This evolution has built an ecosystem of complementary activities in international transfers, payment solutions, microfinance, financial technology, point-of-sale systems and media.', 'IZI LENS was developed in this spirit of diversification and innovation: a platform specialized in digital identity verification, KYC, KYB, biometrics and digital trust technologies.', 'Today, Kafintech Group continues its development with an international ambition: to build a technology and financial ecosystem able to support the transformations of the digital economy.'],
+		story: [
+			'Founded in Canada, Kafintech Group Inc. is a diversified group developing initiatives in technology, financial services, digital payments and media.',
+			'Since its creation, the group has pursued one ambition: to design and develop innovative solutions able to meet the new needs of businesses, individuals and markets undergoing digital transformation.',
+			'As it grew, Kafintech Group gradually extended its activities beyond the Canadian market, notably to several African markets, through different brands, companies and specialized initiatives.',
+			'This evolution has built an ecosystem of complementary activities in international transfers, payment solutions, microfinance, financial technology, point-of-sale systems and media.',
+			'IZI LENS was developed in this spirit of diversification and innovation: a platform specialized in digital identity verification, KYC, KYB, biometrics and digital trust technologies.',
+			'Today, Kafintech Group continues its development with an international ambition: to build a technology and financial ecosystem able to support the transformations of the digital economy.'
+		],
 		eco: { kicker: 'Our Ecosystem', title: 'A diverse ecosystem. One shared vision.', text: 'Kafintech Group develops several complementary brands and initiatives across different sectors.', items: [
 			{ n: 'IZI LIFE PAY', d: 'International money transfer and digital payment solutions.' },
 			{ n: 'IZI TRUST CAPITAL', d: 'Microfinance, savings and financing activities.' },
@@ -316,12 +392,29 @@ const pages: PagesDict = {
 			submit: 'Send my request'
 		},
 		types: { sales: 'Sales inquiry', demo: 'Demo request', partnership: 'Partnership', integration: 'Technology integration', institutional: 'Institutional request', other: 'Other request', quote: 'Quote request', developer: 'Developer access request' },
-		services: { kyc: 'KYC — Identity verification', kyb: 'KYB — Business verification', liveness: 'Biometrics and liveness detection', monitoring: 'Monitoring and tracking', api: 'API integration', other: 'Other' },
+		services: { kyc: 'KYC — Identity verification', kyb: 'KYB — Business verification', liveness: 'Biometrics and liveness detection (Liveness)', monitoring: 'Monitoring and tracking', api: 'API integration', other: 'Other' },
 		demoForm: { title: 'Demo request', text: 'Tell us about your activity: our sales team will get back to you to arrange the presentation.', submit: 'Submit my demo request' },
 		institutional: { title: 'IZI LENS', text: 'A solution developed within Kafintech Group Inc.', hq: 'Group headquarters: Alberta, Canada.' },
 		confirm: { title: 'Thank you for contacting us!', text: 'Your request has been received by IZI LENS. Our team will review it and forward it to the relevant department. We will contact you at the email address provided if more information is needed.', ref: 'Reference number', another: 'Send another request' },
 		errors: { required: 'This field is required.', email: 'Enter a valid email address.', consent: 'Your consent is required to send the request.', server: 'Your request could not be sent. Please try again in a moment.', spam: 'Submission refused.' },
 		portal: { title: 'Customer portal', text: 'Technical support is available to customers from the secure portal.' }
+	},
+	marketing: {
+		pricing: {
+			title: 'Simple and transparent pricing',
+			subtitle: 'Choose the plan that fits your identity verification needs.',
+			faq: 'Frequently asked questions',
+			faqBilling: 'Billing is calculated at the end of the month based on your actual consumption (KYC, KYB, Biometrics).',
+			faqTaxes: 'Prices shown are exclusive of tax. Currency conversion is indicative.',
+			popular: 'Popular',
+			start: 'Get started',
+			contact: 'Contact us',
+			perMonth: 'month',
+			perYear: 'year',
+			included: 'included',
+			ctaTitle: 'Ready to secure your verifications?',
+			ctaText: 'Create your account in 2 minutes and test the platform today.'
+		}
 	}
 };
 

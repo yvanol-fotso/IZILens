@@ -22,7 +22,7 @@ const admin: AdminDict = {
    "noResults": "Nothing to show",
    "noResultsText": "Change the filters or come back later.",
    "unavailable": "Module not connected yet",
-   "unavailableText": "The interface is ready. This screen will fill in as soon as the backend implements the endpoint below (see docs/FRONTEND_CONTRACT.md).",
+   "unavailableText": "The interface is ready. This screen will fill in as soon as the backend implements the endpoint below .",
    "actions": "Actions",
    "secretSet": "A secret is already set. Leave empty to keep it.",
    "confirmChange": "Confirm the change"
@@ -921,7 +921,9 @@ const admin: AdminDict = {
    "period": "Current period",
    "next": "Next invoice",
    "totalDue": "Total due",
-   "consumption": "Consumption by service"
+   "consumption": "Consumption by service",
+   "changePlan": "Change plan",
+   "overage": "Overage billed per unit"
   },
   "dev": {
    "title": "Developers",

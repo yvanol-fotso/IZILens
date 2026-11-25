@@ -80,6 +80,7 @@ export const EPX: any = {
 		invoices: '/billing/invoices',
 		payments: '/billing/payments',
 		usage: '/billing/usage',
-		subscription: '/billing/subscription'
+		subscription: '/billing/subscription',
+		billingSummary: '/billing/summary' 
 	}
 };

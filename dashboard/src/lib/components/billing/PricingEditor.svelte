@@ -6,9 +6,9 @@
 	import type { FormState } from '$lib/types';
 	import { Button, Card, FormAlert, Input, Switch, Textarea } from '$lib/components/shared';
 	import { computeInvoice, type PriceGrid, type Plan, type Service } from '$lib/utils/billing';
-	import { formatNumber } from '$lib/utils/format';
+	import { DEFAULT_PRICING_GRID } from '$lib/config/pricing';
 
-	let { pricing, currencies, form = null, canWrite }: { pricing: any; currencies: string[]; form?: FormState | null; canWrite: boolean } = $props();
+	let { pricing = DEFAULT_PRICING_GRID, currencies = ['CAD'], form = null, canWrite = false }: { pricing: any; currencies: string[]; form?: FormState | null; canWrite: boolean } = $props();
 	const i18n = getI18n();
 	const { t } = i18n;
 	let loading = $state(false);
@@ -16,11 +16,19 @@
 
 	const plans: Plan[] = ['starter', 'business', 'enterprise'];
 	const services: Service[] = ['kyc', 'kyb', 'biometrics'];
-	// État local de la grille (liée aux champs) : sert aussi au simulateur.
-	let grid = $state<PriceGrid>(structuredClone($state.snapshot(pricing) ?? { plans: {}, usage: {}, options: { monitoring_monthly: {} }, integration_fee: { enabled: false, amounts: {} } }));
-	for (const p of plans) grid.plans[p] ??= { monthly: {}, annual: {}, minimum_commitment: {} };
+	
+	// Fallback sur DEFAULT_PRICING_GRID si pricing est vide ou incomplet
+	let grid = $state<PriceGrid>(structuredClone($state.snapshot(pricing) ?? DEFAULT_PRICING_GRID));
+	
+	for (const p of plans) {
+		grid.plans[p] ??= { monthly: {}, annual: {}, minimum_commitment: {} };
+		grid.plans[p].monthly ??= {};
+		grid.plans[p].annual ??= {};
+		grid.plans[p].minimum_commitment ??= {};
+	}
 	for (const s of services) grid.usage[s] ??= {};
-	grid.options ??= { monitoring_monthly: {} }; grid.integration_fee ??= { enabled: false, amounts: {} };
+	grid.options ??= { monitoring_monthly: {} }; 
+	grid.integration_fee ??= { enabled: false, amounts: {} };
 
 	let sim = $state({ plan: 'business' as Plan, currency: currencies[0] ?? 'CAD', cycle: 'monthly' as 'monthly' | 'annual', kyc: 0, kyb: 0, biometrics: 0, monitoring: true, integrationFee: false, discount: 0 });
 	const preview = $derived(computeInvoice(grid, { plan: sim.plan, currency: sim.currency, cycle: sim.cycle, quantities: { kyc: sim.kyc, kyb: sim.kyb, biometrics: sim.biometrics }, monitoring: sim.monitoring, integrationFee: sim.integrationFee, discountPercent: sim.discount }));

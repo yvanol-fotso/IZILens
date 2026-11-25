@@ -85,16 +85,36 @@
 {/if}
 
 <style lang="scss">
-	.nav { position: fixed; inset: 0 0 auto 0; z-index: var(--z-nav); height: var(--header-h); color: #fff; transition: background 0.25s, box-shadow 0.25s; &.scrolled { background: rgb(7 27 53 / 0.88); backdrop-filter: blur(14px) saturate(1.4); box-shadow: 0 1px 0 rgb(255 255 255 / 0.07); } }
-	.bar { height: 100%; display: flex; align-items: center; gap: 2rem; }
-	.links { display: flex; align-items: center; gap: 0.2rem; flex: 1; a, .dd-btn { color: #d3e2f6; font-weight: 600; font-size: var(--fs-sm); padding: 0.55rem 0.8rem; border-radius: var(--radius-sm); background: none; border: 0; display: inline-flex; align-items: center; gap: 0.3rem; &:hover, &.act { color: #fff; background: rgb(255 255 255 / 0.08); text-decoration: none; } &.act { box-shadow: inset 0 -2px 0 var(--brand-cyan); } } }
+	/* Fond navy permanent : le texte blanc reste lisible sur les pages à fond clair (mode light). */
+	.nav {
+		position: fixed;
+		inset: 0 0 auto 0;
+		z-index: var(--z-nav);
+		height: var(--header-h);
+		color: #fff;
+		background: rgb(7 27 53 / 0.92);
+		backdrop-filter: blur(14px) saturate(1.4);
+		box-shadow: 0 1px 0 rgb(255 255 255 / 0.07);
+		transition: background 0.25s, box-shadow 0.25s;
+		&.scrolled { background: rgb(7 27 53 / 0.97); box-shadow: 0 4px 20px rgb(0 0 0 / 0.18); }
+	}
+	.bar { height: 100%; display: flex; align-items: center; gap: 1.25rem; }
+	/* nowrap : empêche « À propos » (FR) de se couper sur deux lignes. */
+	.links {
+		display: flex; align-items: center; gap: 0.1rem; flex: 1; min-width: 0;
+		a, .dd-btn {
+			white-space: nowrap; color: #d3e2f6; font-weight: 600; font-size: var(--fs-sm); padding: 0.55rem 0.7rem; border-radius: var(--radius-sm); background: none; border: 0; display: inline-flex; align-items: center; gap: 0.3rem;
+			&:hover, &.act { color: #fff; background: rgb(255 255 255 / 0.08); text-decoration: none; }
+			&.act { box-shadow: inset 0 -2px 0 var(--brand-cyan); }
+		}
+	}
 	.dd { position: relative; }
 	.mega { position: absolute; top: calc(100% + 12px); left: 0; display: grid; gap: 0.2rem; padding: 0.6rem; width: 320px; background: var(--surface); color: var(--fg); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); animation: drop 0.18s var(--ease);
 		a { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0.7rem; color: var(--fg); border-radius: var(--radius-sm); &:hover { background: var(--surface-2); } }
 		.i { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 10px; background: color-mix(in srgb, var(--c) 15%, var(--surface)); color: var(--c); }
 		.tx { display: grid; line-height: 1.25; small { color: var(--fg-muted); font-size: var(--fs-xs); } }
 		.all { justify-content: space-between; border-top: 1px solid var(--border); border-radius: 0 0 var(--radius-sm) var(--radius-sm); margin-top: 0.3rem; font-size: var(--fs-sm); font-weight: 700; color: var(--primary); } }
-	.right { display: flex; align-items: center; gap: 0.6rem; }
+	.right { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; white-space: nowrap; }
 	.signin { color: #fff; font-weight: 700; font-size: var(--fs-sm); padding: 0.5rem 0.7rem; &:hover { text-decoration: none; color: var(--brand-cyan); } }
 	.burger { display: none; width: 40px; height: 40px; place-items: center; border: 1.5px solid rgb(255 255 255 / 0.28); background: none; color: #fff; border-radius: var(--radius); }
 	.drawer-scrim { position: fixed; inset: 0; z-index: var(--z-drawer); background: var(--scrim); }
@@ -105,5 +125,6 @@
 		:global(.on-dark) { color: #fff; border-color: rgb(255 255 255 / 0.3); } }
 	@keyframes drop { from { opacity: 0; transform: translateY(-6px); } }
 	@keyframes slide { from { transform: translateX(30px); opacity: 0; } }
-	@media (max-width: 1040px) { .links, .signin, .right :global(.cta) { display: none; } .burger { display: grid; } .bar { justify-content: space-between; } .right { gap: 0.4rem; } }
+	/* 1200px : le menu burger prend le relais plus tôt pour les libellés FR plus longs. */
+	@media (max-width: 1200px) { .links, .signin, .right :global(.cta) { display: none; } .burger { display: grid; } .bar { justify-content: space-between; } .right { gap: 0.4rem; } }
 </style>

@@ -920,7 +920,9 @@ const admin = {
    "period": "Période en cours",
    "next": "Prochaine facture",
    "totalDue": "Total à payer",
-   "consumption": "Consommation par service"
+   "consumption": "Consommation par service",
+   "changePlan": "Changer de forfait",
+   "overage": "Dépassement facturé à l'unité"
   },
   "dev": {
    "title": "Développeurs",
