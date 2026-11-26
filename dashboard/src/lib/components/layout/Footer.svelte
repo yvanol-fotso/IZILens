@@ -15,7 +15,7 @@
 <footer>
 	<div class="container top">
 		<div class="brand">
-			<Logo tone="light" size={42} />
+			<Logo tone="light" size={52} />
 			<p class="slogan">{t('site.slogan')}</p>
 			<p>{t('footer.about')}</p>
 			{#if socials.length}
@@ -64,7 +64,7 @@
 <style lang="scss">
 	footer { background: var(--brand-navy); color: #aebfd6; padding-top: 4rem; margin-top: auto; }
 	.top { display: grid; grid-template-columns: minmax(240px, 1.2fr) 3fr; gap: 3rem; padding-bottom: 3rem; }
-	.brand { display: grid; gap: 1rem; align-content: start; p { font-size: var(--fs-sm); max-width: 38ch; line-height: 1.7; } .slogan { color: var(--brand-cyan); font-style: italic; font-weight: 600; } }
+	.brand { display: grid; gap: 1rem; align-content: start; justify-items: start; p { font-size: var(--fs-sm); max-width: 38ch; line-height: 1.7; } .slogan { color: var(--brand-cyan); font-style: italic; font-weight: 600; } }
 	.social { display: flex; gap: 0.5rem; a { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; background: rgb(255 255 255 / 0.08); color: #fff; &:hover { background: var(--primary); } } }
 	.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; }
 	h3 { color: #fff; font-size: var(--fs-sm); margin-bottom: 0.9rem; }

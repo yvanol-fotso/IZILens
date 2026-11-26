@@ -33,7 +33,7 @@
 
 <header class="nav" class:scrolled>
 	<div class="container bar">
-		<Logo tone="light" size={38} />
+		<Logo tone="light" size={44} />
 
 		<nav class="links" aria-label="Main">
 			<div class="dd" use:clickOutside={() => (open = false)}>
@@ -68,7 +68,7 @@
 {#if $mobileNavOpen}
 	<div class="drawer-scrim" role="presentation" onclick={() => ($mobileNavOpen = false)}></div>
 	<div id="mobile-nav" class="drawer" role="dialog" aria-modal="true" use:focusTrap aria-label={t('nav.menu')}>
-		<div class="d-head"><Logo tone="light" size={34} /><button type="button" onclick={() => ($mobileNavOpen = false)} aria-label={t('common.close')}><X size={22} /></button></div>
+		<div class="d-head"><Logo tone="light" size={40} /><button type="button" onclick={() => ($mobileNavOpen = false)} aria-label={t('common.close')}><X size={22} /></button></div>
 		<nav>
 			<a href="/services">{t('nav.services')}</a>
 			{#each SERVICES as s (s.id)}<a class="sub" href="/services/{s.slug}">{t(`svc.items.${s.id}.code`)}</a>{/each}
