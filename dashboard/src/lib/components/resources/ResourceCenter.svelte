@@ -3,6 +3,7 @@
 	import { getI18n } from '$lib/i18n/index.svelte';
 	import { translate } from '$lib/i18n/translate';
 	import { Badge, Input } from '$lib/components/shared';
+	import Img from '$lib/components/shared/Img.svelte';
 
 	const i18n = getI18n();
 	const { t, list } = i18n;
@@ -46,13 +47,20 @@
 
 		<section id="faq" class="faq">
 			<h2>{t('res.faq.title')}</h2>
-			<div class="cats" role="group">
-				<button type="button" class:on={category === 'all'} onclick={() => (category = 'all')}>{t('common.all')}</button>
-				{#each cats as c (c)}<button type="button" class:on={category === c} onclick={() => (category = c)}>{t(`res.faq.categories.${c}`)}</button>{/each}
+			<div class="faq-layout">
+				<div class="faq-main">
+					<div class="cats" role="group">
+						<button type="button" class:on={category === 'all'} onclick={() => (category = 'all')}>{t('common.all')}</button>
+						{#each cats as c (c)}<button type="button" class:on={category === c} onclick={() => (category = c)}>{t(`res.faq.categories.${c}`)}</button>{/each}
+					</div>
+					{#if faq.length}
+						<div class="list">{#each faq as f (f.q)}<details><summary>{f.q}</summary><p>{f.a}</p></details>{/each}</div>
+					{:else}<p class="muted">{t('res.faq.empty')}</p>{/if}
+				</div>
+				<aside class="faq-media">
+					<Img src="/marketing/resources/faq-support" alt={t('res.images.faq')} ratio="8/7" />
+				</aside>
 			</div>
-			{#if faq.length}
-				<div class="list">{#each faq as f (f.q)}<details><summary>{f.q}</summary><p>{f.a}</p></details>{/each}</div>
-			{:else}<p class="muted">{t('res.faq.empty')}</p>{/if}
 		</section>
 	</div>
 </section>
@@ -65,5 +73,8 @@
 	ul { display: grid; gap: 0.4rem; font-size: var(--fs-sm); width: 100%; li { padding: 0.5rem 0.8rem; background: var(--surface-2); border-radius: var(--radius-sm); font-weight: 600; } }
 	.faq { margin-top: 4rem; } h2 { font-size: var(--fs-2xl); margin-bottom: 1.2rem; }
 	.cats { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.4rem; button { padding: 0.5rem 1rem; border-radius: var(--radius-pill); border: 1.5px solid var(--border-strong); background: var(--surface); font-weight: 700; font-size: var(--fs-sm); &.on { background: var(--brand-navy); color: #fff; border-color: var(--brand-navy); } } }
-	.list { display: grid; gap: 0.6rem; max-width: 820px; } details { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.2rem; } summary { font-weight: 700; cursor: pointer; } details p { margin-top: 0.7rem; color: var(--fg-muted); }
+	.faq-layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.8fr); gap: 2.5rem; align-items: start; }
+	.faq-media { position: sticky; top: calc(var(--header-h) + 24px); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+	.list { display: grid; gap: 0.6rem; } details { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.2rem; } summary { font-weight: 700; cursor: pointer; } details p { margin-top: 0.7rem; color: var(--fg-muted); }
+	@media (max-width: 900px) { .faq-layout { grid-template-columns: 1fr; } .faq-media { position: static; order: -1; max-width: 420px; } }
 </style>
