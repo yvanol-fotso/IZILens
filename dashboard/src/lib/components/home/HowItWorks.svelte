@@ -2,6 +2,7 @@
 	import { reveal } from '$lib/actions/reveal';
 	import { getI18n } from '$lib/i18n/index.svelte';
 	import { SectionHeader } from '$lib/components/shared';
+	import Img from '$lib/components/shared/Img.svelte';
 	const { t } = getI18n();
 	const steps = ['s1', 's2', 's3', 's4'];
 </script>
@@ -18,6 +19,9 @@
 				</li>
 			{/each}
 		</ol>
+		<figure class="dash" use:reveal={{ delay: 120 }}>
+			<Img src="/marketing/home/how-dashboard" alt={t('home.images.how')} ratio="1200/460" />
+		</figure>
 	</div>
 </section>
 
@@ -27,5 +31,6 @@
 	li { position: relative; display: grid; gap: 0.5rem; align-content: start; }
 	.n { width: 48px; height: 48px; border-radius: 50%; background: var(--brand-navy); color: var(--brand-cyan); font-weight: 800; display: grid; place-items: center; border: 4px solid var(--bg-soft); position: relative; z-index: 1; margin-bottom: 0.5rem; }
 	h3 { font-size: var(--fs-lg); } p { color: var(--fg-muted); font-size: var(--fs-sm); }
-	@media (max-width: 900px) { ol { grid-template-columns: 1fr; &::before { display: none; } } }
+	.dash { margin: 3.5rem 0 0; --img-radius: var(--radius-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+	@media (max-width: 900px) { ol { grid-template-columns: 1fr; &::before { display: none; } } .dash { margin-top: 2.5rem; } }
 </style>

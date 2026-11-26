@@ -3,6 +3,7 @@
 	import { reveal } from '$lib/actions/reveal';
 	import { getI18n } from '$lib/i18n/index.svelte';
 	import { SectionHeader } from '$lib/components/shared';
+	import Img from '$lib/components/shared/Img.svelte';
 
 	const { t } = getI18n();
 	const items = [
@@ -21,6 +22,11 @@
 					<span class="ico"><Icon size={it.big ? 30 : 24} /></span>
 					<h3>{t(`home.why.items.${it.k}.title`)}</h3>
 					<p>{t(`home.why.items.${it.k}.desc`)}</p>
+					{#if it.big}
+						<div class="art" aria-hidden="true">
+							<Img src="/marketing/home/why-platform" alt="" ratio="7/5" fit="contain" />
+						</div>
+					{/if}
 				</article>
 			{/each}
 		</div>
@@ -35,5 +41,6 @@
 		&:nth-child(2) { grid-column: span 3; } }
 	.ico { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: var(--primary-soft); color: var(--primary); margin-bottom: 0.6rem; }
 	h3 { font-size: var(--fs-lg); } article p { color: var(--fg-muted); font-size: var(--fs-sm); }
+	.art { --img-radius: 0; margin-top: 1.2rem; background: transparent; :global(.img) { background: transparent; } }
 	@media (max-width: 900px) { .bento { grid-template-columns: 1fr; } article, article.big, article:nth-child(2) { grid-column: auto; grid-row: auto; } }
 </style>

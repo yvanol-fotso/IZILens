@@ -4,6 +4,7 @@
 	import { SERVICES, quoteHref } from '$lib/config/services';
 	import { getI18n } from '$lib/i18n/index.svelte';
 	import { Button, SectionHeader, ServicePicker } from '$lib/components/shared';
+	import Img from '$lib/components/shared/Img.svelte';
 
 	const { t } = getI18n();
 	let selected = $state<string[]>([]);
@@ -12,6 +13,9 @@
 <section id="services" class="s">
 	<div class="container">
 		<SectionHeader title={t('home.services.title')}><p>{t('home.services.text')}</p></SectionHeader>
+		<figure class="banner" use:reveal>
+			<Img src="/marketing/home/services-modules" alt={t('home.images.services')} ratio="1200/380" />
+		</figure>
 		<div class="cards">
 			{#each SERVICES as s, i (s.id)}
 				{@const Icon = s.icon}
@@ -35,6 +39,7 @@
 
 <style lang="scss">
 	.s { padding: 6rem 0; background: var(--bg-soft); border-block: 1px solid var(--border); }
+	.banner { margin: 0 0 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
 	.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
 	.card { display: grid; gap: 0.7rem; align-content: start; padding: 1.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); color: var(--fg); text-decoration: none !important; transition: transform 0.2s var(--ease), border-color 0.2s, box-shadow 0.2s; &:hover { transform: translateY(-4px); border-color: var(--c); box-shadow: var(--shadow-md); } }
 	.ico { width: 56px; height: 56px; border-radius: 17px; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 14%, var(--surface)); color: var(--c); }
